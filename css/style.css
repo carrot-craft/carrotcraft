@@ -1,0 +1,819 @@
+:root {
+    --primary-color: #EBA13E;
+    --primary-color-darker: #d48e2f;
+    --primary-color-rgb: 235, 161, 62; /* EBA13EのRGB値 */
+
+    /* Light Theme */
+    --bg-color-light: #ffffff;
+    --secondary-bg-color-light: #f5f5f7;
+    --text-color-light: #333;
+    --text-color-strong-light: #1d1d1f;
+    --header-bg-light: rgba(255, 255, 255, 0.7);
+    --card-bg-light: #ffffff;
+    --card-border-light: #dcdcdc;
+    --modal-bg-light: #ffffff;
+    --modal-overlay-bg-light: rgba(0,0,0,0.6);
+    --button-text-light: #ffffff;
+    --discord-section-bg-light: #333;
+    --discord-section-text-light: #fff;
+    --discord-button-text-light: #fff;
+    --footer-bg-light: #f5f5f7;
+    --footer-text-light: #515154;
+    --link-color-light: #1d1d1f;
+    --ip-address-bg-light: #fef8f0;
+    --ip-address-border-light: #fceecf;
+    --hero-text-color-light: #ffffff; /* ヒーローセクションのテキスト色（明るい背景用）*/
+    --hero-text-shadow-light: rgba(0,0,0,0.6);
+    --hero-content-bg-light: rgba(0, 0, 0, 0.5); /* 背景を少し濃くしてコントラストを上げる */
+    --cta-button-text-color-light: #ffffff;
+    --cta-button-text-shadow-light: rgba(0,0,0,0.3);
+    --cube-size: 100px; /* 新規追加: キューブの基本サイズ */
+    --cube-hat-offset: calc(var(--cube-size) * 0.1); /* 帽子レイヤー用オフセット */
+}
+
+body[data-theme='dark'] {
+    --bg-color-light: #121212;
+    --secondary-bg-color-light: #1e1e1e;
+    --text-color-light: #e0e0e0;
+    --text-color-strong-light: #f5f5f5;
+    --header-bg-light: rgba(30, 30, 30, 0.7);
+    --card-bg-light: #2c2c2c;
+    --card-border-light: #444444;
+    --modal-bg-light: #2c2c2c;
+    --modal-overlay-bg-light: rgba(0,0,0,0.8);
+    --button-text-light: #ffffff;
+    --discord-section-bg-light: #222;
+    --discord-section-text-light: #e0e0e0;
+    --discord-button-text-light: #fff;
+    --footer-bg-light: #1e1e1e;
+    --footer-text-light: #aaaaaa;
+    --link-color-light: #e0e0e0;
+    --ip-address-bg-light: #3a3020;
+    --ip-address-border-light: #5c4b33;
+    --primary-color-rgb: 235, 161, 62; /* ダークモードでも同じアクセントカラーのRGB */
+    --hero-text-color-light: #f0f0f0; /* ヒーローセクションのテキスト色（暗い背景用）*/
+    --hero-text-shadow-light: rgba(0,0,0,0.8);
+    --hero-content-bg-light: rgba(40, 40, 40, 0.6); /* 背景を少し濃く、透明度調整 */
+    --cta-button-text-color-light: #ffffff;
+    --cta-button-text-shadow-light: rgba(0,0,0,0.4);
+}
+
+/* Apple風デザイン CSS - 改良版 */
+
+/* 基本的なリセットとフォント設定 */
+body, h1, h2, h3, p, ul, li, a, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, .cta-button, header nav ul li a, .card h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px; /* Appleサイトのコンテンツ幅に近い値 */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+header {
+    background: var(--header-bg-light);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--card-border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 60px; /* ヘッダーの高さを固定 */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* シャドウを少し追加 */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid var(--primary-color); */ /* ロゴの枠線を削除 */
+}
+
+header #site-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color-strong-light);
+}
+
+header nav {
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: var(--link-color-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+#theme-toggle, #lang-toggle { /* Added #lang-toggle */
+    background: transparent;
+    border: 1px solid var(--text-color-light);
+    color: var(--text-color-light);
+    padding: 8px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px; /* Adjusted for consistency */
+    margin-left: 10px; /* Adjusted margin for spacing */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    min-width: 40px; /* Ensure minimum width for JA/EN text */
+    text-align: center;
+}
+
+#theme-toggle:hover, #lang-toggle:hover { /* Added #lang-toggle */
+    background-color: var(--primary-color);
+    color: var(--button-text-light);
+    border-color: var(--primary-color);
+}
+
+#theme-toggle .fa-moon {
+    /* display: none; */ /* 初期は太陽なので月は隠す JSで制御 */
+}
+
+/* ヒーローセクション */
+#hero {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px 100px 20px; /* 上部パディングを調整 */
+    min-height: 70vh; /* 高さを確保 */
+    display: flex;
+    flex-direction: column; /* コンテンツを縦に並べる */
+    justify-content: flex-end; /* テキストコンテンツを下揃えに */
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--secondary-bg-color-light);
+}
+
+.hero-content-wrapper { 
+    position: relative;
+    z-index: 2;
+    padding: 35px 45px; /* パディング調整 */
+    background-color: var(--hero-content-bg-light);
+    border-radius: 15px;
+    max-width: 700px;
+    width: 90%; /* 幅を確保 */
+}
+
+#hero h2 {
+    font-size: 48px; /* サイズ調整 */
+    font-weight: 700; /* 太くする */
+    margin-bottom: 25px;
+    color: var(--hero-text-color-light); 
+    text-shadow: 0 2px 8px var(--hero-text-shadow-light);
+    line-height: 1.2; /* 行間調整 */
+}
+
+#hero p {
+    font-size: 20px; /* サイズ調整 */
+    font-weight: 400;
+    margin-bottom: 35px;
+    max-width: 600px;
+    color: var(--hero-text-color-light);
+    text-shadow: 0 1px 4px var(--hero-text-shadow-light);
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--cta-button-text-color-light) !important; /* !importantで確実に適用 */
+    padding: 14px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    text-shadow: 0 1px 2px var(--cta-button-text-shadow-light);
+}
+
+.cta-button:hover {
+    background: var(--primary-color-darker);
+    transform: scale(1.05);
+}
+
+/* 3D Cube */
+.cube-container {
+    position: absolute; /* 絶対配置でヒーローセクション内を自由に動かす */
+    top: calc(35% - 3px); /* テキストコンテンツの上に配置されるように調整 */
+    left: 50%;
+    width: var(--cube-size); /* スキンヘッド用にサイズ調整 */
+    height: var(--cube-size); /* スキンヘッド用にサイズ調整 */
+    perspective: 800px; /* perspective値を調整 */
+    transform: translate(-50%, -50%);
+    z-index: 3; /* テキストラッパーより手前 */
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate-cube 20s infinite linear; /* 回転速度調整 */
+}
+
+.cube-face {
+    position: absolute; /* This is crucial for positioning faces within the .cube */
+    width: var(--cube-size); /* キューブサイズに合わせる */
+    height: var(--cube-size); /* キューブサイズに合わせる */
+    background-image: url('../assets/img/4d3a6bd98ac1833c664c4909ff8d2dc62ce887bdcf3cc5b3848651ae5af6b.png');
+    background-size: calc(var(--cube-size) * 8) calc(var(--cube-size) * 8); /* (面サイズ * 8) でスキン全体を表現 */
+    image-rendering: pixelated; /* ピクセルアートの表示をシャープに */
+    transform-style: preserve-3d; /* This is for the ::after pseudo-element's 3D transform */
+    z-index: 1; /* ベースレイヤーのスタック順 */
+}
+
+.cube-face::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/img/4d3a6bd98ac1833c664c4909ff8d2dc62ce887bdcf3cc5b3848651ae5af6b.png'); /* 同じスキン画像を使用 */
+    background-size: calc(var(--cube-size) * 8) calc(var(--cube-size) * 8); /* ベースレイヤーと同じサイズ */
+    image-rendering: pixelated;
+    /* 帽子レイヤーはベースより少しだけ手前に表示 */
+    transform: translateZ(calc(var(--cube-size) / 1000 + var(--cube-hat-offset) * 0.2)); /* わずかに手前に出すことで重なり順を制御 */
+    z-index: 2; /* 帽子をベースより上に表示 */
+}
+
+/* スキンヘッドの各面のマッピング (ベースレイヤー) */
+.front  { background-position: calc(-1 * var(--cube-size)) calc(-1 * var(--cube-size)); transform: translateZ(calc(var(--cube-size) / 2)); }
+.back   { background-position: calc(-3 * var(--cube-size)) calc(-1 * var(--cube-size)); transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.right  { background-position: 0 calc(-1 * var(--cube-size)); transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.left   { background-position: calc(-2 * var(--cube-size)) calc(-1 * var(--cube-size)); transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.top    { background-position: calc(-1 * var(--cube-size)) 0; transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.bottom { background-position: calc(-2 * var(--cube-size)) 0; transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+
+/* スキンヘッドの各面のマッピング (帽子レイヤー) 修正 */
+.front::after  { background-position: calc(-5 * var(--cube-size)) calc(-1 * var(--cube-size)); }
+.back::after   { background-position: calc(-7 * var(--cube-size)) calc(-1 * var(--cube-size)); }
+.right::after  { background-position: calc(-4 * var(--cube-size)) calc(-1 * var(--cube-size)); }
+.left::after   { background-position: calc(-6 * var(--cube-size)) calc(-1 * var(--cube-size)); }
+.top::after    { background-position: calc(-5 * var(--cube-size)) 0; }
+.bottom::after { background-position: calc(-6 * var(--cube-size)) 0; }
+
+@keyframes rotate-cube {
+    from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+/* 各セクションの基本スタイル */
+section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--card-border-light);
+    opacity: 0; /* アニメーション初期状態 */
+    transform: translateY(30px); /* アニメーション初期状態 */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:nth-child(even) { /* 偶数セクション (ヒーロー除く) */
+    background-color: var(--secondary-bg-color-light);
+}
+
+section:nth-child(odd):not(#hero) {
+    background-color: var(--bg-color-light);
+}
+
+section h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 25px; /* 下線とのスペース */
+    color: var(--text-color-strong-light);
+    position: relative;
+    display: inline-block; /* 下線の幅をテキストに合わせる */
+}
+
+section h2::after { /* タイトル下線 */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+}
+
+/* サーバー情報セクション */
+#server-info .server-details {
+    background: var(--card-bg-light);
+    padding: 30px 40px;
+    border-radius: 18px; /* 角丸 */
+    text-align: left;
+    max-width: 750px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07); /* シャドウを少し強調 */
+}
+
+#server-info h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: var(--text-color-strong-light);
+    font-size: 20px;
+    font-weight: 600;
+}
+#server-info h3:first-child {
+    margin-top: 0;
+}
+
+#server-info .ip-address {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--ip-address-bg-light);
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid var(--ip-address-border-light);
+    user-select: all;
+}
+
+#server-info ol {
+    margin-left: 0;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+#server-info ol li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* ゲームリストセクション (旧ゲームモード) */
+#gamelist .gamemode-cards { /* ID変更に合わせてセレクタ更新 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: var(--card-bg-light);
+    border: 1px solid var(--card-border-light);
+    border-radius: 20px; /* Apple風の角丸 */
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: left; /* テキストを左揃えに */
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                opacity 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* アニメーション初期状態 */
+    transform: translateY(20px); /* アニメーション初期状態 */
+    cursor: pointer; /* クリック可能であることを示すカーソル */
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border-color: var(--primary-color);
+}
+
+.card img {
+    width: 100%;
+    height: auto; /* 固定高さを解除 */
+    object-fit: contain; /* 画像全体が見えるよう調整 */
+    border-bottom: 1px solid #eee;
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 20px 10px 20px;
+    color: var(--primary-color);
+}
+
+.card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    padding: 0 20px 20px 20px;
+    color: var(--text-color-light);
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+/* ゲームモードカードの個別アクセントカラー（例） */
+.card:nth-child(1) { transition-delay: 0.1s; } /* アニメーション遅延 */
+.card:nth-child(2) { transition-delay: 0.2s; }
+
+/* モーダルウィンドウ */
+.modal {
+    display: none; /* 初期状態では非表示 */
+    position: fixed;
+    z-index: 2000; /* ヘッダーより手前 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* コンテンツが多い場合にスクロール可能に */
+    background-color: var(--modal-overlay-bg-light);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.active {
+    display: flex; /* アクティブになったら表示 */
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--modal-bg-light);
+    margin: auto;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    animation: modal-open 0.4s ease-out;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: left;
+    font-size: 28px;
+}
+
+.modal-content h2::after {
+    display: none; /* モーダル内タイトルには下線不要 */
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--text-color-light);
+}
+
+.modal-content ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.modal-content ul li {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.modal-overlay {
+    display: none; /* JavaScriptで制御 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1999; /* モーダルの背景 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* アニメーション追加: モーダルの開く動きを付与 */
+@keyframes modal-open {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Discordセクション */
+#discord {
+    text-align: center;
+    background-color: var(--discord-section-bg-light);
+    color: var(--discord-section-text-light);
+}
+
+#discord h2 {
+    color: var(--discord-section-text-light);
+}
+
+#discord h2::after {
+    background-color: var(--primary-color);
+}
+
+#discord p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--discord-section-text-light);
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.discord-button {
+    background: var(--primary-color);
+    color: var(--discord-button-text-light) !important;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+}
+
+.discord-button:hover {
+    background: var(--primary-color-darker);
+    color: var(--discord-button-text-light) !important;
+    transform: scale(1.05);
+}
+
+.discord-button .fab.fa-discord {
+    font-size: 22px;
+}
+
+/* フッター */
+footer {
+    background: var(--footer-bg-light);
+    color: var(--footer-text-light);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+/* レスポンシブ対応 */
+@media(max-width: 768px) {
+    :root {
+        --cube-size: 50px; /* キューブサイズをさらに小さく調整 */
+    }
+
+    .cube-container {
+        top: 100px; /* ヒーローセクション上部からのオフセットを調整 */
+        left: 50%;
+        transform: translateX(-50%); /* 水平方向中央揃え */
+        width: var(--cube-size); 
+        height: var(--cube-size);
+        z-index: 3; 
+    }
+
+    header {
+        height: auto; 
+        padding-top: 10px; /* ヘッダーの上下パディングを少し縮小 */
+        padding-bottom: 10px; 
+    }
+
+    header .container {
+        flex-direction: column; /* 要素を縦に並べる */
+        align-items: center; /* 中央揃え */
+        padding-bottom: 0; 
+    }
+    .logo-area {
+        margin-bottom: 10px; /* 下のマージンを少し縮小 */
+        display: flex; 
+        flex-direction: column; /* スマホではロゴとタイトルを縦に */
+        align-items: center; 
+    }
+    #logo { /* ロゴのサイズを縮小 */
+        height: 36px;
+        width: 36px;
+        margin-right: 8px;
+    }
+    header #site-title {
+        margin-top: 5px; 
+        font-size: 18px; /* サイトタイトルのフォントサイズを縮小 */
+    }
+
+    .header-toggles {
+        display: flex;
+        flex-direction: row; /* ボタンを横並びに変更 */
+        justify-content: center; /* ボタンを中央揃え */
+        align-items: center;
+        margin-bottom: 10px; /* トグルボタン下のマージンを少し縮小 */
+        width: auto; /* 幅を自動調整 */
+    }
+
+    .header-toggles > button {
+        margin: 0 5px; /* ボタン間の横方向のマージンを少し縮小 */
+        font-size: 13px; /* トグルボタンのフォントサイズを縮小 */
+        padding: 6px 8px; /* トグルボタンのパディングを縮小 */
+    }
+    
+    header nav {
+        width: 100%; 
+        margin-top: 0; 
+    }
+    header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    header nav ul li {
+        display: block; /* 各ナビゲーション項目をブロック要素として縦に並べる */
+        margin: 0; /* li自体のマージンはリセット */
+    }
+
+    header nav ul li a {
+        display: block; 
+        padding: 6px 12px;  /* ナビゲーションリンクのパディングを縮小 */
+        color: var(--link-color-light);
+        text-decoration: none;
+        font-size: 13px; /* ナビゲーションリンクのフォントサイズを縮小 */
+        font-family: 'Montserrat', sans-serif;
+        white-space: normal; 
+        word-break: normal;   
+        overflow-wrap: normal; 
+        line-height: 1.4;     
+        border-radius: 4px;
+        text-align: center; 
+        margin: 3px 0; /* 各リンク間の縦マージンを少し縮小 */
+    }
+
+    .hero-content-wrapper { /* ヒーローコンテンツのパディングを縮小 */
+        padding: 25px 30px;
+    }
+    
+    #hero h2 {
+        font-size: 32px; /* ヒーローセクションタイトルのフォントサイズを縮小 */
+        margin-bottom: 20px; /* マージン調整 */
+    }
+    #hero p {
+        font-size: 15px; /* ヒーローセクション説明文のフォントサイズを縮小 */
+        margin-bottom: 25px; /* マージン調整 */
+    }
+    .cta-button { /* CTAボタンのフォントサイズとパディングを縮小 */
+        font-size: 15px;
+        padding: 10px 24px;
+    }
+
+    section {
+        padding: 60px 0; /* セクションの上下パディングを縮小 */
+    }
+    section h2 {
+        font-size: 26px; /* セクションタイトルのフォントサイズを縮小 */
+        margin-bottom: 30px; /* マージン調整 */
+    }
+    section h2::after { /* タイトル下線のサイズとマージンを調整 */
+        width: 50px;
+        height: 2px;
+        margin: 10px auto 0;
+    }
+
+    #server-info .server-details {
+        padding: 20px 25px; /* サーバー詳細のパディングを調整 */
+    }
+    #server-info h3 { /* サーバー情報内小見出しのフォントサイズを縮小 */
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    #server-info .ip-address { /* IPアドレス表示のフォントサイズとパディングを縮小 */
+        font-size: 18px;
+        padding: 8px 14px;
+        margin-bottom: 15px;
+    }
+    #server-info ol li { /* サーバー情報リストアイテムのフォントサイズを縮小 */
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .card {
+        gap: 10px; /* カード内要素の間隔を少し調整 */
+    }
+    .card h3 { /* カードタイトルのフォントサイズとマージンを縮小 */
+        font-size: 18px;
+        margin: 15px 15px 8px 15px;
+    }
+    .card p { /* カード説明文のフォントサイズとパディングを縮小 */
+        font-size: 14px;
+        padding: 0 15px 15px 15px;
+    }
+    
+    .modal-content { /* モーダルコンテンツのパディングを縮小 */
+        padding: 25px 30px;
+    }
+    .modal-content h2 { /* モーダルタイトルのフォントサイズを縮小 */
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    .modal-content p { /* モーダル内テキストのフォントサイズを縮小 */
+        font-size: 14px;
+    }
+    .modal-content ul li { /* モーダル内リストアイテムのフォントサイズを縮小 */
+        font-size: 13px;
+    }
+
+    #discord p { /* Discordセクション説明文のフォントサイズを縮小 */
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+    .discord-button { /* Discordボタンのフォントサイズとパディングを縮小 */
+        font-size: 15px;
+        padding: 10px 22px;
+    }
+    .discord-button .fab.fa-discord { /* Discordアイコンのサイズ調整 */
+        font-size: 20px;
+    }
+
+    footer { /* フッターのフォントサイズとパディングを縮小 */
+        padding: 30px 0;
+        font-size: 12px;
+    }
+}

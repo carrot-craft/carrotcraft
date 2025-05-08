@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarrotCraft - Minecraft Server</title>
+<link rel="icon" href="assets/img/logo.jpeg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body data-title-ja="CarrotCraft - Minecraftサーバー" data-title-en="CarrotCraft - Minecraft Server">
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <img src="assets/img/logo.jpeg" alt="CarrotCraft Logo" id="logo">
+                <h1 id="site-title">CarrotCraft</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero" data-ja="ホーム" data-en="Home">ホーム</a></li>
+                    <li><a href="#server-info" data-ja="サーバー情報" data-en="Server Info">サーバー情報</a></li>
+                    <li><a href="#gamelist" data-ja="ゲームリスト" data-en="Game List">ゲームリスト</a></li>
+                    <li><a href="#discord" data-ja="Discord" data-en="Discord">Discord</a></li>
+                    <li><a href="rules.html" data-ja="ルール" data-en="Rules">ルール</a></li>
+                </ul>
+            </nav>
+            <div class="header-toggles">
+                <button id="theme-toggle" aria-label="テーマを切り替える" data-aria-label-ja="テーマを切り替える" data-aria-label-en="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button id="lang-toggle" aria-label="言語を切り替える" data-aria-label-ja="言語を切り替える" data-aria-label-en="Switch language">JA</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" style="position: relative;">
+            <div id="carrot-fireworks" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></div>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+            </div>
+            <div class="hero-content-wrapper" style="position: relative; z-index: 2;">
+                <div class="container">
+                    <h2 data-ja="ようこそ CarrotCraft へ！" data-en="Welcome to CarrotCraft!">ようこそ CarrotCraft へ！</h2>
+                    <p data-ja="様々なミニゲームをプレイしよう！" data-en="Play various minigames!">様々なミニゲームをプレイしよう！</p>
+                    <a href="#server-info" class="cta-button" data-ja="サーバーに参加！" data-en="Join Server!">サーバーに参加！</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="server-info">
+            <div class="container">
+                <div class="server-details">
+                    <h2 data-ja="サーバー情報" data-en="Server Info">サーバー情報</h2>
+                    <h3 data-ja="サーバーアドレス:" data-en="Server Address:">サーバーアドレス:</h3>
+                    <p class="ip-address">carrotcraft.f5.si</p>
+                    <h3 data-ja="参加方法:" data-en="How to Join:">参加方法:</h3>
+                    <ol>
+                        <li data-ja="Minecraft Java Edition を起動します。" data-en="Launch Minecraft Java Edition.">Minecraft Java Edition を起動します。</li>
+                        <li data-ja="「マルチプレイヤー」を選択します。" data-en="Select &quot;Multiplayer&quot;.">「マルチプレイヤー」を選択します。</li>
+                        <li data-ja="「サーバーを追加」をクリックします。" data-en="Click &quot;Add Server&quot;.">「サーバーを追加」をクリックします。</li>
+                        <li data-ja="サーバー名に「CarrotCraft」、サーバーアドレスに「carrotcraft.f5.si」を入力します。" data-en="Enter &quot;CarrotCraft&quot; for Server Name and &quot;carrotcraft.f5.si&quot; for Server Address.">サーバー名に「CarrotCraft」、サーバーアドレスに「carrotcraft.f5.si」を入力します。</li>
+                        <li data-ja="「完了」をクリックし、リストからCarrotCraftを選択して「サーバーに接続」をクリックします。" data-en="Click &quot;Done&quot;, then select CarrotCraft from the list and click &quot;Join Server&quot;.">「完了」をクリックし、リストからCarrotCraftを選択して「サーバーに接続」をクリックします。</li>
+                    </ol>
+                    <p data-ja="さあ、CarrotCraftの世界へ飛び込もう！" data-en="Let's dive into the world of CarrotCraft!">さあ、CarrotCraftの世界へ飛び込もう！</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gamelist">
+            <div class="container">
+                <h2 data-ja="ゲームリスト" data-en="Game List">ゲームリスト</h2>
+                <!-- GAME LIST START -->
+                <div class="gamemode-cards">
+                    <div class="card" data-modal-target="#modal-monster-attack">
+                        <img src="assets/img/2690745e-1a11-4a29-95ac-0a429f3c925e.png" alt="Monster Attack">
+                        <h3>Monster Attack</h3>
+                        <p data-ja="モンスター討伐と戦略ゲーム。" data-en="Monster slaying and strategy game.">モンスター討伐と戦略ゲーム。</p>
+                    </div>
+                    <div class="card" data-modal-target="#modal-magical-sheep">
+                        <img src="assets/img/2c589808-561e-4522-9d11-a651d49416d8.png" alt="Magical sheep">
+                        <h3>Magical sheep</h3>
+                        <p data-ja="様々な種類の羊を使いこなし、相手を殲滅する。" data-en="Master various types of sheep to annihilate your opponents.">様々な種類の羊を使いこなし、相手を殲滅する。</p>
+                    </div>
+                    <div class="card" data-modal-target="#modal-survival-werewolf">
+                        <img src="assets/img/Survival Werewolf.png" alt="Survival Werewolf">
+                        <h3 data-ja="Survival Werewolf" data-en="Survival Werewolf">Survival Werewolf</h3>
+                        <p data-ja="闇夜に潜む狼を見つけ出せ！ サバイバルと心理戦が交錯する、スリル満点の人狼ゲーム！" data-en="Find the wolf lurking in the dark night! A thrilling werewolf game where survival and psychological warfare intersect!">闇夜に潜む狼を見つけ出せ！ サバイバルと心理戦が交錯する、スリル満点の人狼ゲーム！</p>
+                    </div>
+                    <div class="card" data-modal-target="#modal-three-little-pigs">
+                        <img src="assets/img/The Three Little Pigs.png" alt="The Three Little Pigs">
+                        <h3 data-ja="The Three Little Pigs" data-en="The Three Little Pigs">The Three Little Pigs</h3>
+                        <p data-ja="知恵と勇気で家を守る子豚たちと、力で全てを破壊する狼の、6日間の攻防戦！" data-en="A 6-day battle of wits and courage between the little pigs protecting their house and the wolf destroying everything with force!">知恵と勇気で家を守る子豚たちと、力で全てを破壊する狼の、6日間の攻防戦！</p>
+                    </div>
+                </div>
+                <!-- GAME LIST END -->
+            </div>
+        </section>
+
+        <section id="discord">
+            <div class="container">
+                <h2 data-ja="Discordサーバーに参加しよう！" data-en="Join our Discord Server!">Discordサーバーに参加しよう！</h2>
+                <p data-ja="最新情報や他のプレイヤーとの交流はDiscordで！" data-en="Get the latest news and interact with other players on Discord!">最新情報や他のプレイヤーとの交流はDiscordで！</p>
+                <a href="https://discord.gg/gZ8HrVhbJb" target="_blank" class="cta-button discord-button">
+                    <i class="fab fa-discord"></i> <span data-ja="Discordに参加" data-en="Join Discord">Discordに参加</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-ja="© 2024 CarrotCraft. 全著作権所有。" data-en="© 2024 CarrotCraft. All Rights Reserved.">&copy; 2024 CarrotCraft. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モーダルウィンドウ -->
+    <div id="modal-monster-attack" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-ja="⚔️👹 Monster Attack 💰🛡️" data-en="⚔️👹 Monster Attack 💰🛡️">⚔️👹 Monster Attack 💰🛡️</h2>
+    <img src="assets/img/2690745e-1a11-4a29-95ac-0a429f3c925e.png" alt="Monster Attack" class="modal-img">
+        <img src="assets/img/2690745e-1a11-4a29-95ac-0a429f3c925e.png" alt="Monster Attack" class="modal-img">
+            <p data-ja="🔥 迫りくるモンスターの群れを討伐せよ！ 仲間と協力し、最強の武器で生き残れ！" data-en="🔥 Slay the encroaching hordes of monsters! Cooperate with your allies and survive with the strongest weapons!">🔥 迫りくるモンスターの群れを討伐せよ！ 仲間と協力し、最強の武器で生き<p data-ja="「Monster Attack」へようこそ！ここは、次々と襲い来るモンスターをなぎ倒し、ゴールドを稼いで自身を強化していく、白熱のウェーブ制PVEバトルフィールド！剣、鎌、斧を手に取り、仲間と共に終わりなき戦いに挑もう！" data-en="Welcome to &quot;Monster Attack&quot;! This is a heated wave-based PVE battleground where you mow down successively attacking monsters, earn gold, and strengthen yourself! Grab your sword, scythe, or axe, and challenge the endless battle with your comrades!">「Monster Attack」へようこそ！ここは、次々と襲い来るモンスターをなぎ倒し、ゴールドを稼いで自身を強化していく、白熱のウェーブ制PVEバトルフィールド！剣、鎌、斧を手に取り、仲間と共に終わりなき戦いに挑もう！</p>
+
+            <h3 data-ja="📖 基本ルール" data-en="📖 Basic Rules">📖 基本ルール</h3>
+            <p data-ja="このゲームは、ウェーブごとに強くなるモンスターの大群を、仲間と協力して倒し続けるPVE（プレイヤー対エネミー）ゲームです。" data-en="This game is a PVE (Player versus Enemy) game where you cooperate with allies to continuously defeat hordes of monsters that get stronger with each wave.">このゲームは、ウェーブごとに強くなるモンスターの大群を、仲間と協力して倒し続けるPVE（プレイヤー対エネミー）ゲームです。</p>
+            <h4 data-ja="💥 モンスターを討伐せよ！" data-en="💥 Slay the Monsters!">💥 モンスターを討伐せよ！</h4>
+            <ul>
+                <li data-ja="ウェーブバトル: モンスターはウェーブごとに襲来！全てのモンスターを倒すと、次の、より強力なウェーブが開始されます。" data-en="Wave Battle: Monsters attack in waves! Defeating all monsters starts the next, more powerful wave.">ウェーブバトル: モンスターはウェーブごとに襲来！全てのモンスターを倒すと、次の、より強力なウェーブが開始されます。</li>
+                <li data-ja="ゴールド獲得: モンスターを倒すとゴールドをドロップ！強いモンスターほど多くのゴールドが手に入ります。" data-en="Earn Gold: Monsters drop gold when defeated! Stronger monsters yield more gold.">ゴールド獲得: モンスターを倒すとゴールドをドロップ！強いモンスターほど多くのゴールドが手に入ります。</li>
+            </ul>
+            <h4 data-ja="🛒 ショップでパワーアップ！" data-en="🛒 Power Up at the Shop!">🛒 ショップでパワーアップ！</h4>
+            <ul>
+                <li data-ja="武器とアイテム: 稼いだゴールドを使って、ショップで強力な武器や便利なアイテムを購入！ショップにはいつでも立ち寄れます。" data-en="Weapons and Items: Use earned gold to buy powerful weapons and useful items at the shop! You can visit the shop anytime.">武器とアイテム: 稼いだゴールドを使って、ショップで強力な武器や便利なアイテムを購入！ショップにはいつでも立ち寄れます。</li>
+                <li data-ja="武器強化: 購入した武器は、さらにゴールドを消費して強化可能！" data-en="Weapon Enhancement: Purchased weapons can be further enhanced by spending more gold!">武器強化: 購入した武器は、さらにゴールドを消費して強化可能！</li>
+            </ul>
+
+            <h3 data-ja="🏆 生き残るために！" data-en="🏆 To Survive!">🏆 生き残るために！</h3>
+            <ul>
+                <li data-ja="ウェーブ踏破: 押し寄せるモンスターのウェーブを、仲間と共に乗り越え続けよう！" data-en="Wave Conquest: Keep overcoming the waves of encroaching monsters with your allies!">ウェーブ踏破: 押し寄せるモンスターのウェーブを、仲間と共に乗り越え続けよう！</li>
+                <li data-ja="💀 ゲームオーバー: チームの全員が倒れてしまうと、ゲームオーバーとなります。" data-en="💀 Game Over: If everyone on the team is defeated, the game is over.">💀 ゲームオーバー: チームの全員が倒れてしまうと、ゲームオーバーとなります。</li>
+            </ul>
+
+            <h3 data-ja="⚔️ 武器を選び、戦術を練ろう！" data-en="⚔️ Choose Your Weapon, Devise Your Tactics!">⚔️ 武器を選び、戦術を練ろう！</h3>
+            <p data-ja="ショップでは、個性豊かな3種類の武器があなたを待っています！" data-en="Three unique types of weapons await you in the shop!">ショップでは、個性豊かな3種類の武器があなたを待っています！</p>
+            <ul>
+                <li><strong data-ja="🗡️ 剣 (Sword):" data-en="🗡️ Sword:">🗡️ 剣 (Sword):</strong> <span data-ja="バランスの取れた平均的な能力。周囲の敵を巻き込む範囲攻撃が可能！" data-en="Balanced, average abilities. Capable of area attacks that hit surrounding enemies!">バランスの取れた平均的な能力。周囲の敵を巻き込む範囲攻撃が可能！</span></li>
+                <li><strong data-ja="🌾 鎌 (Scythe):" data-en="🌾 Scythe:">🌾 鎌 (Scythe):</strong> <span data-ja="攻撃力は低いが、目にも止まらぬ速さで攻撃可能！手数の多さで敵を圧倒！" data-en="Low attack power, but can attack with blinding speed! Overwhelm enemies with a flurry of blows!">攻撃力は低いが、目にも止まらぬ速さで攻撃可能！手数の多さで敵を圧倒！</span></li>
+                <li><strong data-ja="🪓 斧 (Axe):" data-en="🪓 Axe:">🪓 斧 (Axe):</strong> <span data-ja="一撃が重い高火力！攻撃速度は遅いが、当たれば大ダメージ！" data-en="High firepower with heavy hits! Slow attack speed, but deals massive damage if it connects!">一撃が重い高火力！攻撃速度は遅いが、当たれば大ダメージ！</span></li>
+            </ul>
+
+            <h3 data-ja="👹 迫りくる脅威！" data-en="👹 Encroaching Threats!">👹 迫りくる脅威！</h3>
+            <ul>
+                <li data-ja="🌊 強化されるモンスター: ウェーブが進むごとに、モンスターはどんどん手強くなっていきます。油断は禁物！" data-en="🌊 Stronger Monsters: Monsters become increasingly formidable with each wave. Don't let your guard down!">🌊 強化されるモンスター: ウェーブが進むごとに、モンスターはどんどん手強くなっていきます。油断は禁物！</li>
+                <li data-ja="👑 ボスモンスター出現: 特定のウェーブでは、強力なボスモンスターが登場！画面下に表示される体力バーに注目し、総力戦で挑もう！" data-en="👑 Boss Monster Appearance: Powerful boss monsters appear in specific waves! Pay attention to the health bar displayed at the bottom of the screen and fight with all your might!">👑 ボスモンスター出現: 特定のウェーブでは、強力なボスモンスターが登場！画面下に表示される体力バーに注目し、総力戦で挑もう！</li>
+                <li data-ja="💰 大ボス討伐ボーナス: 見事、大ボスのウェーブを乗り越えると、大量のボーナスゴールドを獲得！次なる戦いに備えよう。" data-en="💰 Major Boss Defeat Bonus: Successfully overcoming a major boss wave grants a large amount of bonus gold! Prepare for the next battle.">💰 大ボス討伐ボーナス: 見事、大ボスのウェーブを乗り越えると、大量のボーナスゴールドを獲得！次なる戦いに備えよう。</li>
+            </ul>
+
+            <h3 data-ja="🤝 仲間との絆が勝利の鍵！" data-en="🤝 The Bond with Allies is the Key to Victory!">🤝 仲間との絆が勝利の鍵！</h3>
+            <ul>
+                <li data-ja="❤️ 復活システム: プレイヤーがダウンしても、諦めるな！仲間が近くでスニークし続けることで、復活させることができます。" data-en="❤️ Revival System: Even if a player goes down, don't give up! Allies can revive them by continuously sneaking nearby.">❤️ 復活システム: プレイヤーがダウンしても、諦めるな！仲間が近くでスニークし続けることで、復活させることができます。</li>
+                <li data-ja="🔗 連携プレイ: 異なる武器の特性を活かし、仲間と連携して戦うことが生存のカギ！戦略的な判断も重要になります。" data-en="🔗 Coordinated Play: Utilizing the characteristics of different weapons and fighting in coordination with allies is key to survival! Strategic decisions are also important.">🔗 連携プレイ: 異なる武器の特性を活かし、仲間と連携して戦うことが生存のカギ！戦略的な判断も重要になります。</li>
+            </ul>
+            <p class="text-center" data-ja="🔥 「Monster Attack」で、限界を超えろ！ 🔥<br>仲間と力を合わせ、最強の装備を整え、無限に続くモンスターの猛攻を生き延びよう！あなたの武勇伝が、今、始まる！ ⚔️👹💰🛡️" data-en="🔥 Push your limits in &quot;Monster Attack&quot;! 🔥<br>Join forces with your allies, gear up with the best equipment, and survive the endless onslaught of monsters! Your legend begins now! ⚔️👹💰🛡️">🔥 「Monster Attack」で、限界を超えろ！ 🔥<br>仲間と力を合わせ、最強の装備を整え、無限に続くモンスターの猛攻を生き延びよう！あなたの武勇伝が、今、始まる！ ⚔️👹💰🛡️</p>
+残れ！</p>
+            <p data-ja="「Monster Attack」へようこそ！ここは、次々と襲い来るモンスターをなぎ倒し、ゴールドを稼いで自身を強化していく、白熱のウェーブ制PVEバトルフィールド！剣、鎌、斧を手に取り、仲間と共に終わりなき戦いに挑もう！" data-en="Welcome to &quot;Monster Attack&quot;! This is a heated wave-based PVE battleground where you mow down successively attacking monsters, earn gold, and strengthen yourself! Grab your sword, scythe, or axe, and challenge the endless battle with your comrades!">「Monster Attack」へようこそ！ここは、次々と襲い来るモンスターをなぎ倒し、ゴールドを稼いで自身を強化していく、白熱のウェーブ制PVEバトルフィールド！剣、鎌、斧を手に取り、仲間と共に終わりなき戦いに挑もう！</p>
+
+            <h3 data-ja="📖 基本ルール" data-en="📖 Basic Rules">📖 基本ルール</h3>
+            <p data-ja="このゲームは、ウェーブごとに強くなるモンスターの大群を、仲間と協力して倒し続けるPVE（プレイヤー対エネミー）ゲームです。" data-en="This game is a PVE (Player versus Enemy) game where you cooperate with allies to continuously defeat hordes of monsters that get stronger with each wave.">このゲームは、ウェーブごとに強くなるモンスターの大群を、仲間と協力して倒し続けるPVE（プレイヤー対エネミー）ゲームです。</p>
+            <h4 data-ja="💥 モンスターを討伐せよ！" data-en="💥 Slay the Monsters!">💥 モンスターを討伐せよ！</h4>
+            <ul>
+                <li data-ja="ウェーブバトル: モンスターはウェーブごとに襲来！全てのモンスターを倒すと、次の、より強力なウェーブが開始されます。" data-en="Wave Battle: Monsters attack in waves! Defeating all monsters starts the next, more powerful wave.">ウェーブバトル: モンスターはウェーブごとに襲来！全てのモンスターを倒すと、次の、より強力なウェーブが開始されます。</li>
+                <li data-ja="ゴールド獲得: モンスターを倒すとゴールドをドロップ！強いモンスターほど多くのゴールドが手に入ります。" data-en="Earn Gold: Monsters drop gold when defeated! Stronger monsters yield more gold.">ゴールド獲得: モンスターを倒すとゴールドをドロップ！強いモンスターほど多くのゴールドが手に入ります。</li>
+            </ul>
+            <h4 data-ja="🛒 ショップでパワーアップ！" data-en="🛒 Power Up at the Shop!">🛒 ショップでパワーアップ！</h4>
+            <ul>
+                <li data-ja="武器とアイテム: 稼いだゴールドを使って、ショップで強力な武器や便利なアイテムを購入！ショップにはいつでも立ち寄れます。" data-en="Weapons and Items: Use earned gold to buy powerful weapons and useful items at the shop! You can visit the shop anytime.">武器とアイテム: 稼いだゴールドを使って、ショップで強力な武器や便利なアイテムを購入！ショップにはいつでも立ち寄れます。</li>
+                <li data-ja="武器強化: 購入した武器は、さらにゴールドを消費して強化可能！" data-en="Weapon Enhancement: Purchased weapons can be further enhanced by spending more gold!">武器強化: 購入した武器は、さらにゴールドを消費して強化可能！</li>
+            </ul>
+
+            <h3 data-ja="🏆 生き残るために！" data-en="🏆 To Survive!">🏆 生き残るために！</h3>
+            <ul>
+                <li data-ja="ウェーブ踏破: 押し寄せるモンスターのウェーブを、仲間と共に乗り越え続けよう！" data-en="Wave Conquest: Keep overcoming the waves of encroaching monsters with your allies!">ウェーブ踏破: 押し寄せるモンスターのウェーブを、仲間と共に乗り越え続けよう！</li>
+                <li data-ja="💀 ゲームオーバー: チームの全員が倒れてしまうと、ゲームオーバーとなります。" data-en="💀 Game Over: If everyone on the team is defeated, the game is over.">💀 ゲームオーバー: チームの全員が倒れてしまうと、ゲームオーバーとなります。</li>
+            </ul>
+
+            <h3 data-ja="⚔️ 武器を選び、戦術を練ろう！" data-en="⚔️ Choose Your Weapon, Devise Your Tactics!">⚔️ 武器を選び、戦術を練ろう！</h3>
+            <p data-ja="ショップでは、個性豊かな3種類の武器があなたを待っています！" data-en="Three unique types of weapons await you in the shop!">ショップでは、個性豊かな3種類の武器があなたを待っています！</p>
+            <ul>
+                <li><strong data-ja="🗡️ 剣 (Sword):" data-en="🗡️ Sword:">🗡️ 剣 (Sword):</strong> <span data-ja="バランスの取れた平均的な能力。周囲の敵を巻き込む範囲攻撃が可能！" data-en="Balanced, average abilities. Capable of area attacks that hit surrounding enemies!">バランスの取れた平均的な能力。周囲の敵を巻き込む範囲攻撃が可能！</span></li>
+                <li><strong data-ja="🌾 鎌 (Scythe):" data-en="🌾 Scythe:">🌾 鎌 (Scythe):</strong> <span data-ja="攻撃力は低いが、目にも止まらぬ速さで攻撃可能！手数の多さで敵を圧倒！" data-en="Low attack power, but can attack with blinding speed! Overwhelm enemies with a flurry of blows!">攻撃力は低いが、目にも止まらぬ速さで攻撃可能！手数の多さで敵を圧倒！</span></li>
+                <li><strong data-ja="🪓 斧 (Axe):" data-en="🪓 Axe:">🪓 斧 (Axe):</strong> <span data-ja="一撃が重い高火力！攻撃速度は遅いが、当たれば大ダメージ！" data-en="High firepower with heavy hits! Slow attack speed, but deals massive damage if it connects!">一撃が重い高火力！攻撃速度は遅いが、当たれば大ダメージ！</span></li>
+            </ul>
+
+            <h3 data-ja="👹 迫りくる脅威！" data-en="👹 Encroaching Threats!">👹 迫りくる脅威！</h3>
+            <ul>
+                <li data-ja="🌊 強化されるモンスター: ウェーブが進むごとに、モンスターはどんどん手強くなっていきます。油断は禁物！" data-en="🌊 Stronger Monsters: Monsters become increasingly formidable with each wave. Don't let your guard down!">🌊 強化されるモンスター: ウェーブが進むごとに、モンスターはどんどん手強くなっていきます。油断は禁物！</li>
+                <li data-ja="👑 ボスモンスター出現: 特定のウェーブでは、強力なボスモンスターが登場！画面下に表示される体力バーに注目し、総力戦で挑もう！" data-en="👑 Boss Monster Appearance: Powerful boss monsters appear in specific waves! Pay attention to the health bar displayed at the bottom of the screen and fight with all your might!">👑 ボスモンスター出現: 特定のウェーブでは、強力なボスモンスターが登場！画面下に表示される体力バーに注目し、総力戦で挑もう！</li>
+                <li data-ja="💰 大ボス討伐ボーナス: 見事、大ボスのウェーブを乗り越えると、大量のボーナスゴールドを獲得！次なる戦いに備えよう。" data-en="💰 Major Boss Defeat Bonus: Successfully overcoming a major boss wave grants a large amount of bonus gold! Prepare for the next battle.">💰 大ボス討伐ボーナス: 見事、大ボスのウェーブを乗り越えると、大量のボーナスゴールドを獲得！次なる戦いに備えよう。</li>
+            </ul>
+
+            <h3 data-ja="🤝 仲間との絆が勝利の鍵！" data-en="🤝 The Bond with Allies is the Key to Victory!">🤝 仲間との絆が勝利の鍵！</h3>
+            <ul>
+                <li data-ja="❤️ 復活システム: プレイヤーがダウンしても、諦めるな！仲間が近くでスニークし続けることで、復活させることができます。" data-en="❤️ Revival System: Even if a player goes down, don't give up! Allies can revive them by continuously sneaking nearby.">❤️ 復活システム: プレイヤーがダウンしても、諦めるな！仲間が近くでスニークし続けることで、復活させることができます。</li>
+                <li data-ja="🔗 連携プレイ: 異なる武器の特性を活かし、仲間と連携して戦うことが生存のカギ！戦略的な判断も重要になります。" data-en="🔗 Coordinated Play: Utilizing the characteristics of different weapons and fighting in coordination with allies is key to survival! Strategic decisions are also important.">🔗 連携プレイ: 異なる武器の特性を活かし、仲間と連携して戦うことが生存のカギ！戦略的な判断も重要になります。</li>
+            </ul>
+            <p class="text-center" data-ja="🔥 「Monster Attack」で、限界を超えろ！ 🔥<br>仲間と力を合わせ、最強の装備を整え、無限に続くモンスターの猛攻を生き延びよう！あなたの武勇伝が、今、始まる！ ⚔️👹💰🛡️" data-en="🔥 Push your limits in &quot;Monster Attack&quot;! 🔥<br>Join forces with your allies, gear up with the best equipment, and survive the endless onslaught of monsters! Your legend begins now! ⚔️👹💰🛡️">🔥 「Monster Attack」で、限界を超えろ！ 🔥<br>仲間と力を合わせ、最強の装備を整え、無限に続くモンスターの猛攻を生き延びよう！あなたの武勇伝が、今、始まる！ ⚔️👹💰🛡️</p>
+        </div>
+    </div>
+
+    <div id="modal-magical-sheep" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>🎮🌟 MagicalSheep 🌟🎮</h2>
+            <p data-ja="💥 羊を撃ち合いながら戦うスリリングなPVPゲーム！ 💥" data-en="💥 A thrilling PVP game where you fight by shooting sheep at each other! 💥">💥 羊を撃ち合いながら戦うスリリングなPVPゲーム！ 💥</p>
+            <h3 data-ja="[日本語版]" data-en="[English Version]">[日本語<p data-ja="「MagicalSheep」は、羊を撃ち合い、相手にダメージを与えながら戦うPVPゲームです！" data-en="&quot;MagicalSheep&quot; is a PVP game where you shoot sheep at each other to deal damage and fight!">「MagicalSheep」は、羊を撃ち合い、相手にダメージを与えながら戦うPVPゲームです！</p>
+            <h4><span data-ja="💡 遊び方" data-en="💡 How to Play">💡 遊び方</span></h4>
+            <ul>
+                <li><span data-ja="🧰 <strong>アイテムを集めよう！</strong><br/>ステージに落ちているチェストを開けて、さまざまなアイテムをゲット！" data-en="🧰 <strong>Collect Items!</strong><br/>Open chests found on the stage to get various items!">🧰 <strong>アイテムを集めよう！</strong><br/>ステージに落ちているチェストを開けて、さまざまなアイテムをゲット！</span></li>
+                <li><span data-ja="🎯 <strong>羊を撃て！</strong><br/>羊は「アイテムを捨てる操作」で発射可能！" data-en="🎯 <strong>Shoot Sheep!</strong><br/>Sheep can be launched using the &quot;drop item&quot; action!">🎯 <strong>羊を撃て！</strong><br/>羊は「アイテムを捨てる操作」で発射可能！</span></li>
+                <li><span data-ja="💥 <strong>能力発動！</strong><br/>羊が何かにぶつかると、爆発や毒などの特殊効果が発動！" data-en="💥 <strong>Activate Abilities!</strong><br/>When a sheep hits something, special effects like explosions or poison are triggered!">💥 <strong>能力発動！</strong><br/>羊が何かにぶつかると、爆発や毒などの特殊効果が発動！</span></li>
+                <li>
+                    <strong data-ja="🏆 勝利条件" data-en="🏆 Winning Conditions">🏆 勝利条件</strong>
+                    <ul>
+                        <li data-ja="<strong>チーム戦:</strong> 相手チームを全滅させたら勝利！" data-en="<strong>Team Battle:</strong> Annihilate the opposing team to win!"><strong>チーム戦:</strong> 相手チームを全滅させたら勝利！</li>
+                        <li data-ja="<strong>ソロモード:</strong> 最後の1人になるまで戦え！" data-en="<strong>Solo Mode:</strong> Fight until you're the last one standing!"><strong>ソロモード:</strong> 最後の1人になるまで戦え！</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4><span data-ja="⚙️ 注意事項" data-en="⚙️ Notes">⚙️ 注意事項</span></h4>
+            <ul>
+                <li data-ja="人数差に応じて入手できる羊の数が変化します！" data-en="The number of sheep you can obtain changes based on team size differences!">人数差に応じて入手できる羊の数が変化します！</li>
+                <li data-ja="インベントリには剣以外のアイテムも入っています！" data-en="Your inventory also contains items other than swords!">インベントリには剣以外のアイテムも入っています！</li>
+                <li data-ja="🏹 羊に矢を当てるとその場で能力が発動します！" data-en="🏹 Hitting a sheep with an arrow activates its ability on the spot!">🏹 羊に矢を当てるとその場で能力が発動します！</li>
+            </ul>
+            <h4><span data-ja="🔑 準備方法" data-en="🔑 How to Prepare">🔑 準備方法</span></h4>
+            <p data-ja="エンダーチェストを開いて、右上のボタンを押してください！" data-en="Open the Ender Chest and press the button in the top right!">エンダーチェストを開いて、右上のボタンを押してください！</p>
+            <hr/>
+            <p class="text-center" data-ja="さあ、「MagicalSheep」でバトルを楽しもう！" data-en="Now, enjoy battling in &quot;MagicalSheep&quot;!">さあ、「MagicalSheep」でバトルを楽しもう！</p>
+            <img src="assets/img/Magical Sheep.png" alt="Magical Sheep" style="max-width:100%; height:auto; display:block; margin:20px auto 0;">
+版]</h3>
+            <p data-ja="「MagicalSheep」は、羊を撃ち合い、相手にダメージを与えながら戦うPVPゲームです！" data-en="&quot;MagicalSheep&quot; is a PVP game where you shoot sheep at each other to deal damage and fight!">「MagicalSheep」は、羊を撃ち合い、相手にダメージを与えながら戦うPVPゲームです！</p>
+            <h4><span data-ja="💡 遊び方" data-en="💡 How to Play">💡 遊び方</span></h4>
+            <ul>
+                <li><span data-ja="🧰 <strong>アイテムを集めよう！</strong><br/>ステージに落ちているチェストを開けて、さまざまなアイテムをゲット！" data-en="🧰 <strong>Collect Items!</strong><br/>Open chests found on the stage to get various items!">🧰 <strong>アイテムを集めよう！</strong><br/>ステージに落ちているチェストを開けて、さまざまなアイテムをゲット！</span></li>
+                <li><span data-ja="🎯 <strong>羊を撃て！</strong><br/>羊は「アイテムを捨てる操作」で発射可能！" data-en="🎯 <strong>Shoot Sheep!</strong><br/>Sheep can be launched using the &quot;drop item&quot; action!">🎯 <strong>羊を撃て！</strong><br/>羊は「アイテムを捨てる操作」で発射可能！</span></li>
+                <li><span data-ja="💥 <strong>能力発動！</strong><br/>羊が何かにぶつかると、爆発や毒などの特殊効果が発動！" data-en="💥 <strong>Activate Abilities!</strong><br/>When a sheep hits something, special effects like explosions or poison are triggered!">💥 <strong>能力発動！</strong><br/>羊が何かにぶつかると、爆発や毒などの特殊効果が発動！</span></li>
+                <li>
+                    <strong data-ja="🏆 勝利条件" data-en="🏆 Winning Conditions">🏆 勝利条件</strong>
+                    <ul>
+                        <li data-ja="<strong>チーム戦:</strong> 相手チームを全滅させたら勝利！" data-en="<strong>Team Battle:</strong> Annihilate the opposing team to win!"><strong>チーム戦:</strong> 相手チームを全滅させたら勝利！</li>
+                        <li data-ja="<strong>ソロモード:</strong> 最後の1人になるまで戦え！" data-en="<strong>Solo Mode:</strong> Fight until you're the last one standing!"><strong>ソロモード:</strong> 最後の1人になるまで戦え！</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4><span data-ja="⚙️ 注意事項" data-en="⚙️ Notes">⚙️ 注意事項</span></h4>
+            <ul>
+                <li data-ja="人数差に応じて入手できる羊の数が変化します！" data-en="The number of sheep you can obtain changes based on team size differences!">人数差に応じて入手できる羊の数が変化します！</li>
+                <li data-ja="インベントリには剣以外のアイテムも入っています！" data-en="Your inventory also contains items other than swords!">インベントリには剣以外のアイテムも入っています！</li>
+                <li data-ja="🏹 羊に矢を当てるとその場で能力が発動します！" data-en="🏹 Hitting a sheep with an arrow activates its ability on the spot!">🏹 羊に矢を当てるとその場で能力が発動します！</li>
+            </ul>
+            <h4><span data-ja="🔑 準備方法" data-en="🔑 How to Prepare">🔑 準備方法</span></h4>
+            <p data-ja="エンダーチェストを開いて、右上のボタンを押してください！" data-en="Open the Ender Chest and press the button in the top right!">エンダーチェストを開いて、右上のボタンを押してください！</p>
+            <hr/>
+            <p class="text-center" data-ja="さあ、「MagicalSheep」でバトルを楽しもう！" data-en="Now, enjoy battling in &quot;MagicalSheep&quot;!">さあ、「MagicalSheep」でバトルを楽しもう！</p>
+            <img src="assets/img/Magical Sheep.png" alt="Magical Sheep" style="max-width:100%; height:auto; display:block; margin:20px auto 0;">
+       <!-- Survival Werewolf Modal -->
+ </div>
+    </div>
+
+    <!-- Survival Werewolf Modal -->
+    <div id="modal-survival-werewolf" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-ja="🐺🌙 Survival Werewolf 💎🤫" data-en="🐺🌙 Survival Werewolf 💎🤫">🐺🌙 Survival Werewolf 💎🤫</h2>
+            <img src="assets/img/Survival Werewolf.png" alt="Survival Werewolf" class="modal-img">
+            <p data-ja="🌌 闇夜に潜む狼を見つけ出せ！ サバイバルと心理戦が交錯する、スリル満点の人狼ゲーム！" data-en="🌌 Find the wolf lurking in the dark night! A thrilling werewolf game where survival and psychological warfare intersect!">🌌 闇夜に潜む狼を見つけ<p data-ja="「Survival Werewolf」へようこそ！このゲームは、鉱石を集めて脱出を目指す「村人陣営」と、村人たちを欺き全滅を狙う「人狼陣営」との戦いです。限られたチャット、迫りくる夜の恐怖、そして誰を信じるべきか… あなたの洞察力とサバイバルスキルが試されます！" data-en="Welcome to &quot;Survival Werewolf&quot;! This game is a battle between the &quot;Villager Team,&quot; who aim to escape by collecting ores, and the &quot;Werewolf Team,&quot; who deceive the villagers and aim for their annihilation. Limited chat, the encroaching terror of the night, and who to trust... Your insight and survival skills will be tested!">「Survival Werewolf」へようこそ！このゲームは、鉱石を集めて脱出を目指す「村人陣営」と、村人たちを欺き全滅を狙う「人狼陣営」との戦いです。限られたチャット、迫りくる夜の恐怖、そして誰を信じるべきか… あなたの洞察力とサバイバルスキルが試されます！</p>
+            
+            <h3 data-ja="📖 基本ルール" data-en="📖 Basic Rules">📖 基本ルール</h3>
+            <p data-ja="このゲームは、サバイバル要素と人狼ゲームの心理戦が融合した、緊張感あふれるPVPです。" data-en="This game is a tense PVP that fuses survival elements with the psychological warfare of a werewolf game.">このゲームは、サバイバル要素と人狼ゲームの心理戦が融合した、緊張感あふれるPVPです。</p>
+            
+            <h4 data-ja="🤝 陣営と勝利条件" data-en="🤝 Teams and Victory Conditions">🤝 陣営と勝利条件</h4>
+            <ul>
+                <li><strong data-ja="🧑‍🌾 村人陣営:" data-en="🧑‍🌾 Villager Team:">🧑‍🌾 村人陣営:</strong>
+                    <ul>
+                        <li data-ja="目的: 鉱石を集めて指定量を納品し、MP（脱出ポイント）を獲得して脱出ゲートから脱出する。" data-en="Objective: Collect ores, deliver the specified amount, earn MP (Escape Points), and escape through the escape gate.">目的: 鉱石を集めて指定量を納品し、MP（脱出ポイント）を獲得して脱出ゲートから脱出する。</li>
+                        <li data-ja="勝利: 規定人数の村人が脱出する。" data-en="Victory: A set number of villagers escape.">勝利: 規定人数の村人が脱出する。</li>
+                    </ul>
+                </li>
+                <li><strong data-ja="🐺 人狼陣営:" data-en="🐺 Werewolf Team:">🐺 人狼陣営:</strong>
+                    <ul>
+                        <li data-ja="目的: 村人たちを欺き、夜の力を借りて彼らを一人残らず狩り尽くす。" data-en="Objective: Deceive the villagers and use the power of the night to hunt them all down.">目的: 村人たちを欺き、夜の力を借りて彼らを一人残らず狩り尽くす。</li>
+                        <li data-ja="勝利: 村人陣営を全滅させる。" data-en="Victory: Annihilate the Villager Team.">勝利: 村人陣営を全滅させる。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 data-ja="🧑‍🌾 村人陣営ガイド" data-en="🧑‍🌾 Villager Team Guide">🧑‍🌾 村人陣営ガイド</h3>
+            <h4 data-ja="💬 コミュニケーション" data-en="💬 Communication">💬 コミュニケーション</h4>
+            <ul>
+                <li data-ja="近距離チャット: 情報共有は慎重に。信頼できる仲間を見極めよう。" data-en="Proximity Chat: Share information carefully. Discern trustworthy allies.">近距離チャット: 情報共有は慎重に。信頼できる仲間を見極めよう。</li>
+            </ul>
+            <h4 data-ja="💎 鉱石集めと納品" data-en="💎 Ore Collection and Delivery">💎 鉱石集めと納品</h4>
+            <ul>
+                <li data-ja="納品方法: インベントリ内の「Collecting Box」に鉱石をドラッグ＆ドロップ。" data-en="Delivery Method: Drag and drop ores into the &quot;Collecting Box&quot; in your inventory.">納品方法: インベントリ内の「Collecting Box」に鉱石をドラッグ＆ドロップ。</li>
+                <li data-ja="作業台: マップ中央でのみクラフト可能。周辺は一時的に無敵だが長居は禁物。" data-en="Crafting Table: Crafting only at the central map table. Area is temporarily invincible, but don't linger.">作業台: マップ中央でのみクラフト可能。周辺は一時的に無敵だが長居は禁物。</li>
+            </ul>
+            <h4 data-ja="🤝 役職と能力" data-en="🤝 Roles and Abilities">🤝 役職と能力</h4>
+            <ul></ul>
+                <li data-ja="📜 占い師: 夜に一度、最も近いプレイヤーが人狼か占える（狂人/共犯者は「人狼ではない」と表示）。" data-en="📜 Seer: Once per night, can divine if the nearest player is a werewolf (Madman/Accomplice shows as &quot;not a werewolf&quot;).">📜 占い師: 夜に一度、最も近いプレイヤーが人狼か占える（狂人/共犯者は「人狼ではない」と表示）。</li>
+                <li data-ja="👻 霊媒師: 死者発生時に特別なメッセージが表示される。" data-en="👻 Medium: A special message appears when someone dies.">👻 霊媒師: 死者発生時に特別なメッセージが表示される。</li>
+                <li data-ja="🛡️ 騎士: 他の役職より防御力が高い。" data-en="🛡️ Knight: Higher defense than other roles.">🛡️ 騎士: 他の役職より防御力が高い。</li>
+                <li data-ja="🧑‍🌾 村人: 特殊能力なし。仲間と協力して人狼を見つけ出す。" data-en="🧑‍🌾 Villager: No special abilities. Cooperate with allies to find werewolves.">🧑‍🌾 村人: 特殊能力なし。仲間と協力して人狼を見つけ出す。</li>
+            </ul>
+            <h4 data-ja="⚠️ 注意点" data-en="⚠️ Important Notes">⚠️ 注意点</h4>
+            <ul>
+                <li data-ja="同士討ち: 村人が他プレイヤーを誤って倒すと最大体力が減少。" data-en="Friendly Fire: If a villager mistakenly kills another player, their max health decreases.">同士討ち: 村人が他プレイヤーを誤って倒すと最大体力が減少。</li>
+                <li data-ja="継続ダメージ: ゲーム長期化や脱出可能になるとマップ全体に発生。" data-en="Continuous Damage: Occurs map-wide if the game drags on or escape is possible.">継続ダメージ: ゲーム長期化や脱出可能になるとマップ全体に発生。</li>
+                <li data-ja="作業台の無敵: 長時間滞在で効果切れ。離れると再発動。" data-en="Crafting Table Invincibility: Wears off with prolonged stay. Reactivates upon moving away.">作業台の無敵: 長時間滞在で効果切れ。離れると再発動。</li>
+            </ul>
+
+            <h3 data-ja="🐺 人狼陣営ガイド" data-en="🐺 Werewolf Team Guide">🐺 人狼陣営ガイド</h3>
+            <h4 data-ja="🌙 夜の力" data-en="🌙 Power of the Night">🌙 夜の力</h4>
+            <ul>
+                <li data-ja="夜間強化: 夜毎に人狼は強化される。" data-en="Nighttime Enhancement: Werewolves get stronger each night.">夜間強化: 夜毎に人狼は強化される。</li>
+                <li data-ja="忍び寄る影: 5秒以上スニークで近くの人狼でないプレイヤーの方向が分かる。" data-en="Creeping Shadow: Sneaking for 5+ seconds reveals the direction of nearby non-werewolf players.">忍び寄る影: 5秒以上スニークで近くの人狼でないプレイヤーの方向が分かる。</li>
+            </ul>
+            <h4 data-ja="😈 欺瞞と策略" data-en="😈 Deception and Strategy">😈 欺瞞と策略</h4>
+            <ul>
+                <li data-ja="狂人/共犯者: 人狼陣営だが仲間は不明。占われても「人狼ではない」と表示。" data-en="Madman/Accomplice: Werewolf team, but allies unknown. Shows as &quot;not a werewolf&quot; if divined.">狂人/共犯者: 人狼陣営だが仲間は不明。占われても「人狼ではない」と表示。</li>
+                <li data-ja="納品の利用: 人狼も鉱石を納品可能。村人を装い油断を誘える。" data-en="Using Deliveries: Werewolves can also deliver ores. Can feign being a villager to lower guard.">納品の利用: 人狼も鉱石を納品可能。村人を装い油断を誘える。</li>
+            </ul>
+            <h4 data-ja="🏆 勝利のために" data-en="🏆 For Victory">🏆 勝利のために</h4>
+            <ul>
+                <li data-ja="中央の襲撃: 作業台は村人が集まる。無敵切れや油断を狙う。" data-en="Central Ambush: Villagers gather at the crafting table. Target when invincibility drops or they're off guard.">中央の襲撃: 作業台は村人が集まる。無敵切れや油断を狙う。</li>
+            </ul>
+
+            <h3 data-ja="📖 全プレイヤー共通情報" data-en="📖 Common Information for All Players">📖 全プレイヤー共通情報</h3>
+            <ul>
+                <li data-ja="📘 Rolebook: インベントリ内でクリックすると参加役職数を確認可能。" data-en="📘 Rolebook: Click in inventory to see the number of participating roles.">📘 Rolebook: インベントリ内でクリックすると参加役職数を確認可能。</li>
+                <li data-ja="📦 Collecting Box: インベントリ内のアイテムドラッグで鉱石納品（人狼も可）。" data-en="📦 Collecting Box: Deliver ores by dragging items in inventory (werewolves too).">📦 Collecting Box: インベントリ内のアイテムドラッグで鉱石納品（人狼も可）。</li>
+                <li><strong data-ja="⏰ 時間経過とイベント:" data-en="⏰ Time Passage and Events:">⏰ 時間経過とイベント:</strong>
+                    <ul>
+                        <li data-ja="継続ダメージ: ゲーム長期化や脱出条件達成で全プレイヤーに発生。" data-en="Continuous Damage: Affects all players if game prolonged or escape conditions met.">継続ダメージ: ゲーム長期化や脱出条件達成で全プレイヤーに発生。</li>
+                        <li data-ja="突発イベント: ゲーム中に予期せぬイベントが発生し、戦況が変化する可能性あり。" data-en="Sudden Events: Unexpected events can occur, potentially changing the game's flow.">突発イベント: ゲーム中に予期せぬイベントが発生し、戦況が変化する可能性あり。</li>
+                    </ul>
+                </li>
+                <li data-ja="🐺 人狼陣営全滅ボーナス: 人狼全滅時、村人陣営の納品MPが倍増。" data-en="🐺 Werewolf Annihilation Bonus: If Werewolf team is wiped out, Villager team's delivery MP doubles.">🐺 人狼陣営全滅ボーナス: 人狼全滅時、村人陣営の納品MPが倍増。</li>
+            </ul>
+            <p data-ja="さあ、「Survival Werewolf」で、信頼と裏切りが渦巻く極限の心理戦を生き残り、あなたの陣営を勝利へと導け！ 🐺💎🌙🤫" data-en="Now, survive the extreme psychological warfare swirling with trust and betrayal in &quot;Survival Werewolf,&quot; and lead your side to victory! 🐺💎🌙🤫">さあ、「Survival Werewolf」で、信頼と裏切りが渦巻く極限の心理戦を生き残り、あなたの陣営を勝利へと導け！ 🐺💎🌙🤫</p>
+出せ！ サバイバルと心理戦が交錯する、スリル満点の人狼ゲーム！</p>
+            <p data-ja="「Survival Werewolf」へようこそ！このゲームは、鉱石を集めて脱出を目指す「村人陣営」と、村人たちを欺き全滅を狙う「人狼陣営」との戦いです。限られたチャット、迫りくる夜の恐怖、そして誰を信じるべきか… あなたの洞察力とサバイバルスキルが試されます！" data-en="Welcome to &quot;Survival Werewolf&quot;! This game is a battle between the &quot;Villager Team,&quot; who aim to escape by collecting ores, and the &quot;Werewolf Team,&quot; who deceive the villagers and aim for their annihilation. Limited chat, the encroaching terror of the night, and who to trust... Your insight and survival skills will be tested!">「Survival Werewolf」へようこそ！このゲームは、鉱石を集めて脱出を目指す「村人陣営」と、村人たちを欺き全滅を狙う「人狼陣営」との戦いです。限られたチャット、迫りくる夜の恐怖、そして誰を信じるべきか… あなたの洞察力とサバイバルスキルが試されます！</p>
+            
+            <h3 data-ja="📖 基本ルール" data-en="📖 Basic Rules">📖 基本ルール</h3>
+            <p data-ja="このゲームは、サバイバル要素と人狼ゲームの心理戦が融合した、緊張感あふれるPVPです。" data-en="This game is a tense PVP that fuses survival elements with the psychological warfare of a werewolf game.">このゲームは、サバイバル要素と人狼ゲームの心理戦が融合した、緊張感あふれるPVPです。</p>
+            
+            <h4 data-ja="🤝 陣営と勝利条件" data-en="🤝 Teams and Victory Conditions">🤝 陣営と勝利条件</h4>
+            <ul>
+                <li><strong data-ja="🧑‍🌾 村人陣営:" data-en="🧑‍🌾 Villager Team:">🧑‍🌾 村人陣営:</strong>
+                    <ul>
+                        <li data-ja="目的: 鉱石を集めて指定量を納品し、MP（脱出ポイント）を獲得して脱出ゲートから脱出する。" data-en="Objective: Collect ores, deliver the specified amount, earn MP (Escape Points), and escape through the escape gate.">目的: 鉱石を集めて指定量を納品し、MP（脱出ポイント）を獲得して脱出ゲートから脱出する。</li>
+                        <li data-ja="勝利: 規定人数の村人が脱出する。" data-en="Victory: A set number of villagers escape.">勝利: 規定人数の村人が脱出する。</li>
+                    </ul>
+                </li>
+                <li><strong data-ja="🐺 人狼陣営:" data-en="🐺 Werewolf Team:">🐺 人狼陣営:</strong>
+                    <ul>
+                        <li data-ja="目的: 村人たちを欺き、夜の力を借りて彼らを一人残らず狩り尽くす。" data-en="Objective: Deceive the villagers and use the power of the night to hunt them all down.">目的: 村人たちを欺き、夜の力を借りて彼らを一人残らず狩り尽くす。</li>
+                        <li data-ja="勝利: 村人陣営を全滅させる。" data-en="Victory: Annihilate the Villager Team.">勝利: 村人陣営を全滅させる。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 data-ja="🧑‍🌾 村人陣営ガイド" data-en="🧑‍🌾 Villager Team Guide">🧑‍🌾 村人陣営ガイド</h3>
+            <h4 data-ja="💬 コミュニケーション" data-en="💬 Communication">💬 コミュニケーション</h4>
+            <ul>
+                <li data-ja="近距離チャット: 情報共有は慎重に。信頼できる仲間を見極めよう。" data-en="Proximity Chat: Share information carefully. Discern trustworthy allies.">近距離チャット: 情報共有は慎重に。信頼できる仲間を見極めよう。</li>
+            </ul>
+            <h4 data-ja="💎 鉱石集めと納品" data-en="💎 Ore Collection and Delivery">💎 鉱石集めと納品</h4>
+            <ul>
+                <li data-ja="納品方法: インベントリ内の「Collecting Box」に鉱石をドラッグ＆ドロップ。" data-en="Delivery Method: Drag and drop ores into the &quot;Collecting Box&quot; in your inventory.">納品方法: インベントリ内の「Collecting Box」に鉱石をドラッグ＆ドロップ。</li>
+                <li data-ja="作業台: マップ中央でのみクラフト可能。周辺は一時的に無敵だが長居は禁物。" data-en="Crafting Table: Crafting only at the central map table. Area is temporarily invincible, but don't linger.">作業台: マップ中央でのみクラフト可能。周辺は一時的に無敵だが長居は禁物。</li>
+            </ul>
+            <h4 data-ja="🤝 役職と能力" data-en="🤝 Roles and Abilities">🤝 役職と能力</h4>
+            <ul></ul>
+                <li data-ja="📜 占い師: 夜に一度、最も近いプレイヤーが人狼か占える（狂人/共犯者は「人狼ではない」と表示）。" data-en="📜 Seer: Once per night, can divine if the nearest player is a werewolf (Madman/Accomplice shows as &quot;not a werewolf&quot;).">📜 占い師: 夜に一度、最も近いプレイヤーが人狼か占える（狂人/共犯者は「人狼ではない」と表示）。</li>
+                <li data-ja="👻 霊媒師: 死者発生時に特別なメッセージが表示される。" data-en="👻 Medium: A special message appears when someone dies.">👻 霊媒師: 死者発生時に特別なメッセージが表示される。</li>
+                <li data-ja="🛡️ 騎士: 他の役職より防御力が高い。" data-en="🛡️ Knight: Higher defense than other roles.">🛡️ 騎士: 他の役職より防御力が高い。</li>
+                <li data-ja="🧑‍🌾 村人: 特殊能力なし。仲間と協力して人狼を見つけ出す。" data-en="🧑‍🌾 Villager: No special abilities. Cooperate with allies to find werewolves.">🧑‍🌾 村人: 特殊能力なし。仲間と協力して人狼を見つけ出す。</li>
+            </ul>
+            <h4 data-ja="⚠️ 注意点" data-en="⚠️ Important Notes">⚠️ 注意点</h4>
+            <ul>
+                <li data-ja="同士討ち: 村人が他プレイヤーを誤って倒すと最大体力が減少。" data-en="Friendly Fire: If a villager mistakenly kills another player, their max health decreases.">同士討ち: 村人が他プレイヤーを誤って倒すと最大体力が減少。</li>
+                <li data-ja="継続ダメージ: ゲーム長期化や脱出可能になるとマップ全体に発生。" data-en="Continuous Damage: Occurs map-wide if the game drags on or escape is possible.">継続ダメージ: ゲーム長期化や脱出可能になるとマップ全体に発生。</li>
+                <li data-ja="作業台の無敵: 長時間滞在で効果切れ。離れると再発動。" data-en="Crafting Table Invincibility: Wears off with prolonged stay. Reactivates upon moving away.">作業台の無敵: 長時間滞在で効果切れ。離れると再発動。</li>
+            </ul>
+
+            <h3 data-ja="🐺 人狼陣営ガイド" data-en="🐺 Werewolf Team Guide">🐺 人狼陣営ガイド</h3>
+            <h4 data-ja="🌙 夜の力" data-en="🌙 Power of the Night">🌙 夜の力</h4>
+            <ul>
+                <li data-ja="夜間強化: 夜毎に人狼は強化される。" data-en="Nighttime Enhancement: Werewolves get stronger each night.">夜間強化: 夜毎に人狼は強化される。</li>
+                <li data-ja="忍び寄る影: 5秒以上スニークで近くの人狼でないプレイヤーの方向が分かる。" data-en="Creeping Shadow: Sneaking for 5+ seconds reveals the direction of nearby non-werewolf players.">忍び寄る影: 5秒以上スニークで近くの人狼でないプレイヤーの方向が分かる。</li>
+            </ul>
+            <h4 data-ja="😈 欺瞞と策略" data-en="😈 Deception and Strategy">😈 欺瞞と策略</h4>
+            <ul>
+                <li data-ja="狂人/共犯者: 人狼陣営だが仲間は不明。占われても「人狼ではない」と表示。" data-en="Madman/Accomplice: Werewolf team, but allies unknown. Shows as &quot;not a werewolf&quot; if divined.">狂人/共犯者: 人狼陣営だが仲間は不明。占われても「人狼ではない」と表示。</li>
+                <li data-ja="納品の利用: 人狼も鉱石を納品可能。村人を装い油断を誘える。" data-en="Using Deliveries: Werewolves can also deliver ores. Can feign being a villager to lower guard.">納品の利用: 人狼も鉱石を納品可能。村人を装い油断を誘える。</li>
+            </ul>
+            <h4 data-ja="🏆 勝利のために" data-en="🏆 For Victory">🏆 勝利のために</h4>
+            <ul>
+                <li data-ja="中央の襲撃: 作業台は村人が集まる。無敵切れや油断を狙う。" data-en="Central Ambush: Villagers gather at the crafting table. Target when invincibility drops or they're off guard.">中央の襲撃: 作業台は村人が集まる。無敵切れや油断を狙う。</li>
+            </ul>
+
+            <h3 data-ja="📖 全プレイヤー共通情報" data-en="📖 Common Information for All Players">📖 全プレイヤー共通情報</h3>
+            <ul>
+                <li data-ja="📘 Rolebook: インベントリ内でクリックすると参加役職数を確認可能。" data-en="📘 Rolebook: Click in inventory to see the number of participating roles.">📘 Rolebook: インベントリ内でクリックすると参加役職数を確認可能。</li>
+                <li data-ja="📦 Collecting Box: インベントリ内のアイテムドラッグで鉱石納品（人狼も可）。" data-en="📦 Collecting Box: Deliver ores by dragging items in inventory (werewolves too).">📦 Collecting Box: インベントリ内のアイテムドラッグで鉱石納品（人狼も可）。</li>
+                <li><strong data-ja="⏰ 時間経過とイベント:" data-en="⏰ Time Passage and Events:">⏰ 時間経過とイベント:</strong>
+                    <ul>
+                        <li data-ja="継続ダメージ: ゲーム長期化や脱出条件達成で全プレイヤーに発生。" data-en="Continuous Damage: Affects all players if game prolonged or escape conditions met.">継続ダメージ: ゲーム長期化や脱出条件達成で全プレイヤーに発生。</li>
+                        <li data-ja="突発イベント: ゲーム中に予期せぬイベントが発生し、戦況が変化する可能性あり。" data-en="Sudden Events: Unexpected events can occur, potentially changing the game's flow.">突発イベント: ゲーム中に予期せぬイベントが発生し、戦況が変化する可能性あり。</li>
+                    </ul>
+                </li>
+                <li data-ja="🐺 人狼陣営全滅ボーナス: 人狼全滅時、村人陣営の納品MPが倍増。" data-en="🐺 Werewolf Annihilation Bonus: If Werewolf team is wiped out, Villager team's delivery MP doubles.">🐺 人狼陣営全滅ボーナス: 人狼全滅時、村人陣営の納品MPが倍増。</li>
+            </ul>
+            <p data-ja="さあ、「Survival Werewolf」で、信頼と裏切りが渦巻く極限の心理戦を生き残り、あなたの陣営を勝利へと導け！ 🐺💎🌙🤫" data-en="Now, survive the extreme psychological warfare swirling with trust and betrayal in &quot;Survival Werewolf,&quot; and lead your side to victory! 🐺💎🌙🤫">さあ、「Survival Werewolf」で、信頼と裏切りが渦巻く極限の心理戦を生き残り、あなたの陣営を勝利へと導け！ 🐺💎🌙🤫</p>
+        </div>
+    </div>
+
+    <!-- The Three Little Pigs Modal -->
+    <div id="modal-three-little-pigs" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-ja="🐺🏠🧱 The Three Little Pigs 🐷💥" data-en="🐺🏠🧱 The Three Little Pigs 🐷💥">🐺🏠🧱 The Three Little Pigs 🐷💥</h2>
+            <img src="assets/img/The Three Little Pigs.png" alt="The Three Little Pigs" class="modal-img">
+            <p data-ja="🐷🆚🐺 知恵と勇気で家を守る子豚たちと、力で全てを破壊する狼の、6日間の攻防戦！" data-en="🐷🆚🐺 A 6-day battle of wits and courage between the little pigs protecting their house and the wolf destroying everything with force!">🐷🆚🐺 知恵と勇気で家を守る子豚たちと、力で全てを破壊する狼の、6日間の攻防戦！</p>
+            <p data-ja="「The Three Little Pigs」へようこそ！このゲームでは、あなたは可愛い子豚として仲間と協力して拠点を守るか、恐ろしい狼として子豚たちを追い詰めるかを選びます。戦略とチームワークが試される、スリリングなサバイバルPVPを体験しよう！" data-en="Welcome to &quot;The Three Little Pigs&quot;! In this game, you choose to either cooperate with fellow cute pigs to defend your base or become a fearsome wolf to hunt down the pigs. Experience a thrilling survival PVP that tests your strategy and teamwork!">「The Three Little Pigs」へようこそ！このゲームでは、あなたは可愛い子豚として仲間と協力して拠点を守るか、恐ろしい狼として子豚たちを追い詰めるかを選びます。戦略とチームワークが試される、スリリングなサバイバルPVPを体験しよう！</p>
+            
+            <h3 data-ja="📖 基本ルール" data-en="📖 Basic Rules">📖 基本ルール</h3>
+            <p data-ja="このゲームは「子豚チーム」と「狼チーム」に分かれて戦う、最大6日間の非対称型PVPです。" data-en="This game is an asymmetrical PVP of up to 6 days, where players are divided into the &quot;Pig Team&quot; and the &quot;Wolf Team.&quot;">このゲームは「子豚チーム」と「狼チーム」に分かれて戦う、最大6日間の非対称型PVPです。</p>
+
+            <h4 data-ja="🤝 チームと勝利条件" data-en="🤝 Teams and Victory Conditions">🤝 チームと勝利条件</h4>
+            <ul>
+                <li><strong data-ja="🐷 子豚チーム:" data-en="🐷 Pig Team:">🐷 子豚チーム:</strong>
+                    <ul>
+                        <li data-ja="目的: 仲間と協力し、6日間拠点の”コア”を狼から守り抜く。" data-en="Objective: Cooperate with teammates to defend the base's &quot;core&quot; from the wolf for 6 days.">目的: 仲間と協力し、6日間拠点の”コア”を狼から守り抜く。</li>
+                        <li data-ja="勝利条件1: 6日間、拠点のコアを守り抜く。" data-en="Victory Condition 1: Successfully defend the base core for 6 days.">勝利条件1: 6日間、拠点のコアを守り抜く。</li>
+                        <li data-ja="勝利条件2: コア破壊後でも最終日まで生き残り、狼チームを全滅させる。" data-en="Victory Condition 2: Even if the core is destroyed, survive until the final day and annihilate the Wolf Team.">勝利条件2: コア破壊後でも最終日まで生き残り、狼チームを全滅させる。</li>
+                        <li data-ja="✨ 完全勝利: 6日間コアが破壊されず、かつ狼チームを全滅させる。" data-en="✨ Complete Victory: Annihilate the Wolf Team within 6 days with the core intact.">✨ 完全勝利: 6日間コアが破壊されず、かつ狼チームを全滅させる。</li>
+                    </ul>
+                </li>
+                <li><strong data-ja="🐺 狼チーム:" data-en="🐺 Wolf Team:">🐺 狼チーム:</strong>
+                    <ul>
+                        <li data-ja="目的: 子豚の拠点の”コア”を破壊し、その後すべての子豚を狩り尽くす。" data-en="Objective: Destroy the pigs' base &quot;core&quot; and then hunt down all the pigs.">目的: 子豚の拠点の”コア”を破壊し、その後すべての子豚を狩り尽くす。</li>
+                        <li data-ja="勝利条件: 6日間以内に子豚のコアを破壊し、その後子豚チームを全滅させる。" data-en="Victory Condition: Destroy the pigs' core within 6 days and then annihilate the Pig Team.">勝利条件: 6日間以内に子豚のコアを破壊し、その後子豚チームを全滅させる。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 data-ja="🐷 子豚チームガイド" data-en="🐷 Pig Team Guide">🐷 子豚チームガイド</h3>
+            <h4 data-ja="🎯 基本戦略" data-en="🎯 Basic Strategy">🎯 基本戦略</h4>
+            <ul>
+                <li data-ja="サバイバル: アイテムを集め、壁・武器・罠で拠点を強化。" data-en="Survival: Gather items, fortify base with walls, weapons, traps.">サバイバル: アイテムを集め、壁・武器・罠で拠点を強化。</li>
+                <li data-ja="コア防衛: コア破壊でリスポーン不可（最終日の逆転勝利除く）。" data-en="Core Defense: Core destruction means no respawn (except for final day comeback).">コア防衛: コア破壊でリスポーン不可（最終日の逆転勝利除く）。</li>
+                <li data-ja="役割と協力: 能力を活かし、仲間と協力して狼を撃退。" data-en="Roles & Cooperation: Use abilities, cooperate to repel wolves.">役割と協力: 能力を活かし、仲間と協力して狼を撃退。</li>
+                <li data-ja="ダメージ注意: 被弾で一時的に移動速度低下。" data-en="Damage Warning: Taking hits temporarily slows movement.">ダメージ注意: 被弾で一時的に移動速度低下。</li>
+            </ul>
+            <h4 data-ja="🥕 食料とバフ" data-en="🥕 Food and Buffs">🥕 食料とバフ</h4>
+            <ul>
+                <li data-ja="大好物: ニンジン、ジャガイモ、ビートルートで特殊バフ。" data-en="Favorites: Carrots, potatoes, beetroots give special buffs.">大好物: ニンジン、ジャガイモ、ビートルートで特殊バフ。</li>
+                <li data-ja="苦手なもの: 肉系食料でデバフ。" data-en="Dislikes: Meat-based foods cause debuffs.">苦手なもの: 肉系食料でデバフ。</li>
+            </ul>
+            <h4 data-ja="🧱 建築と施設" data-en="🧱 Building and Facilities">🧱 建築と施設</h4>
+            <ul>
+                <li data-ja="自動タレット: 「重量用感圧版(鉄)」に「銅ブロック」を投げて起動。狼を自動攻撃（被弾で破壊）。" data-en="Auto Turret: Activate by throwing &quot;Copper Block&quot; on &quot;Heavy Weighted Pressure Plate (Iron)&quot;. Attacks wolves automatically (breaks on damage).">自動タレット: 「重量用感圧版(鉄)」に「銅ブロック」を投げて起動。狼を自動攻撃（被弾で破壊）。</li>
+                <li data-ja="報告装置: 「重量用感圧版(鉄)」に「レッドストーンブロック」を投げて起動。狼接近を子豚全員に通知（被弾で破壊）。" data-en="Reporting Device: Activate by throwing &quot;Redstone Block&quot; on &quot;Heavy Weighted Pressure Plate (Iron)&quot;. Notifies all pigs of wolf approach (breaks on damage).">報告装置: 「重量用感圧版(鉄)」に「レッドストーンブロック」を投げて起動。狼接近を子豚全員に通知（被弾で破壊）。</li>
+            </ul>
+            <h4 data-ja="✨ 特殊能力とアイテム" data-en="✨ Special Abilities and Items">✨ 特殊能力とアイテム</h4>
+            <ul>
+                <li data-ja="小さな体: スニークで1mの隙間を通過可能。" data-en="Small Body: Can pass 1m gaps by sneaking.">小さな体: スニークで1mの隙間を通過可能。</li>
+                <li data-ja="帰還の石: 所持してスニークで拠点にテレポート。" data-en="Stone of Return: Hold and sneak to teleport to base.">帰還の石: 所持してスニークで拠点にテレポート。</li>
+                <li data-ja="ショップ: 拠点コア右クリックでアイテム購入。" data-en="Shop: Right-click base core to buy items.">ショップ: 拠点コア右クリックでアイテム購入。</li>
+                <li data-ja="金の防具強化: クラフトした金防具は通常より強力。" data-en="Gold Armor Power-up: Crafted gold armor is stronger than normal.">金の防具強化: クラフトした金防具は通常より強力。</li>
+                <li data-ja="特別レシピ: 不死のトーテム、トライデント、TNT等に存在。" data-en="Special Recipes: Exist for Totems of Undying, Tridents, TNT, etc.">特別レシピ: 不死のトーテム、トライデント、TNT等に存在。</li>
+            </ul>
+            <h4 data-ja="👀 仲間とリスポーン" data-en="👀 Allies and Respawn">👀 仲間とリスポーン</h4>
+            <ul>
+                <li data-ja="味方識別: 小さく足元に緑パーティクル。" data-en="Ally ID: Small with green particles at feet.">味方識別: 小さく足元に緑パーティクル。</li>
+                <li data-ja="リスポーン: コア健在なら可能。待機中は他プレイヤー視点（狼視点で情報収集も）。" data-en="Respawn: Possible if core is intact. Spectate others while waiting (gather info from wolf POV).">リスポーン: コア健在なら可能。待機中は他プレイヤー視点（狼視点で情報収集も）。</li>
+                <li data-ja="最終日のチャンス: 最終日は狼チームリスポーン不可。" data-en="Final Day Chance: Wolf team cannot respawn on the final day.">最終日のチャンス: 最終日は狼チームリスポーン不可。</li>
+            </ul>
+
+            <h3 data-ja="🐺 狼チームガイド" data-en="🐺 Wolf Team Guide">🐺 狼チームガイド</h3>
+            <h4 data-ja="🎯 基本戦略" data-en="🎯 Basic Strategy">🎯 基本戦略</h4>
+            <ul>
+                <li data-ja="サバイバル: アイテム収集と武器強化で拠点破壊準備。" data-en="Survival: Gather items, upgrade weapons to prepare for base destruction.">サバイバル: アイテム収集と武器強化で拠点破壊準備。</li>
+                <li data-ja="夜の狩人: 夜間は体力自動増。昼準備、夜襲撃。" data-en="Night Hunter: Health auto-regen at night. Prep by day, attack by night.">夜の狩人: 夜間は体力自動増。昼準備、夜襲撃。</li>
+                <li data-ja="コア探索: 夜間のみ子豚コアが光って見える。位置を把握。" data-en="Core Hunt: Pig core glows only at night. Pinpoint its location.">コア探索: 夜間のみ子豚コアが光って見える。位置を把握。</li>
+                <li data-ja="コア破壊: 剣等で攻撃して破壊。" data-en="Core Destruction: Attack with sword etc. to destroy.">コア破壊: 剣等で攻撃して破壊。</li>
+            </ul>
+            <h4 data-ja="🍖 食料とバフ" data-en="🍖 Food and Buffs">🍖 食料とバフ</h4>
+            <ul>
+                <li data-ja="大好物: 肉系食料で特殊バフ。" data-en="Favorites: Meat-based foods grant special buffs.">大好物: 肉系食料で特殊バフ。</li>
+            </ul>
+            <h4 data-ja="💥 強力な攻撃" data-en="💥 Powerful Attacks">💥 強力な攻撃</h4>
+            <ul>
+                <li data-ja="鉱石遠距離攻撃: 鉱石を持ってスニークチャージで発動。" data-en="Ore Ranged Attack: Hold ore and sneak-charge to unleash.">鉱石遠距離攻撃: 鉱石を持ってスニークチャージで発動。</li>
+                <li data-ja="踏みつけ: 足元の子豚にダメージ。" data-en="Stomp: Damage pigs underfoot.">踏みつけ: 足元の子豚にダメージ。</li>
+            </ul>
+            <h4 data-ja="✨ 特殊能力とアイテム" data-en="✨ Special Abilities and Items">✨ 特殊能力とアイテム</h4>
+            <ul>
+                <li data-ja="大きな体: スニークなしでは2mの隙間を通れない。" data-en="Large Body: Cannot pass 2m gaps without sneaking.">大きな体: スニークなしでは2mの隙間を通れない。</li>
+                <li data-ja="金の防具強化: クラフトした金防具は通常より強力。" data-en="Gold Armor Power-up: Crafted gold armor is stronger than normal.">金の防具強化: クラフトした金防具は通常より強力。</li>
+                <li data-ja="特別レシピ: 不死のトーテム、トライデント、TNT等に存在。" data-en="Special Recipes: Exist for Totems of Undying, Tridents, TNT, etc.">特別レシピ: 不死のトーテム、トライデント、TNT等に存在。</li>
+            </ul>
+            <h4 data-ja="👀 仲間とリスポーン" data-en="👀 Allies and Respawn">👀 仲間とリスポーン</h4>
+            <ul>
+                <li data-ja="味方識別: 大きく足元に赤パーティクル（複数狼時）。" data-en="Ally ID: Large with red particles at feet (if multiple wolves).">味方識別: 大きく足元に赤パーティクル（複数狼時）。</li>
+                <li data-ja="リスポーン: 最終日以外可能。マップ角の上空ランダム。待機中は他プレイヤー視点（子豚視点で情報収集も）。" data-en="Respawn: Possible except final day. Random corner high in map. Spectate others (gather info from pig POV).">リスポーン: 最終日以外可能。マップ角の上空ランダム。待機中は他プレイヤー視点（子豚視点で情報収集も）。</li>
+                <li data-ja="最終決戦: 最終日はリスポーン不可。コア破壊で子豚もリスポーン不可に。" data-en="Final Battle: No respawn on final day. Destroy core to make pigs non-respawnable too.">最終決戦: 最終日はリスポーン不可。コア破壊で子豚もリスポーン不可に。</li>
+            </ul>
+
+            <h3 data-ja="⚙️ 両チーム共通ポイント" data-en="⚙️ Common Points for Both Teams">⚙️ 両チーム共通ポイント</h3>
+            <ul>
+                <li data-ja="金の防具: 両チームともクラフト金防具は鉄より強力。" data-en="Gold Armor: For both teams, crafted gold armor is stronger than iron.">金の防具: 両チームともクラフト金防具は鉄より強力。</li>
+                <li data-ja="特殊レシピ: 不死のトーテム、トライデント、TNT等、戦いを有利にするアイテムあり。" data-en="Special Recipes: Items like Totems, Tridents, TNT can give an edge.">特殊レシピ: 不死のトーテム、トライデント、TNT等、戦いを有利にするアイテムあり。</li>
+                <li data-ja="リスポーン待機中: 他プレイヤー視点（特に敵チーム）で情報収集。" data-en="Respawn Waiting: Gather info by spectating others (especially enemy team).">リスポーン待機中: 他プレイヤー視点（特に敵チーム）で情報収集。</li>
+                <li data-ja="子豚の設置物破壊: 狼は子豚のタレットや報告装置を攻撃して破壊可能。" data-en="Destroy Pig Installations: Wolves can attack and destroy pig turrets/reporting devices.">子豚の設置物破壊: 狼は子豚のタレットや報告装置を攻撃して破壊可能。</li>
+                <li><strong data-ja="最終日のルール:" data-en="Final Day Rules:">最終日のルール:</strong>
+                    <ul>
+                        <li data-ja="🐷 子豚: 狼リスポーン不可。反撃し、コア健在で狼全滅なら「完全勝利」。" data-en="🐷 Pigs: Wolves can't respawn. Counterattack; if core is intact & wolves wiped, &quot;Complete Victory&quot;.">🐷 子豚: 狼リスポーン不可。反撃し、コア健在で狼全滅なら「完全勝利」。</li>
+                        <li data-ja="🐺 狼: リスポーン不可。慎重に行動し、コア破壊と子豚全滅を目指す。" data-en="🐺 Wolves: Cannot respawn. Act cautiously to destroy core and pigs.">🐺 狼: リスポーン不可。慎重に行動し、コア破壊と子豚全滅を目指す。</li>
+                    </ul>
+                </li>
+            </ul>
+            <p data-ja="さあ、「The Three Little Pigs」で、究極のサバイバルを体験し、あなたのチームを勝利に導こう！ 🐷🧱🐺💥" data-en="Now, experience the ultimate survival in &quot;The Three Little Pigs&quot; and lead your team to victory! 🐷🧱🐺💥">さあ、「The Three Little Pigs」で、究極のサバイバルを体験し、あなたのチームを勝利に導こう！ 🐷🧱🐺💥</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+
+    <!-- Inline script for enhanced carrot fireworks animation -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const fireworksContainer = document.getElementById("carrot-fireworks");
+        function createFirework() {
+            const firework = document.createElement("span");
+            firework.textContent = "🥕";
+            firework.style.position = "absolute";
+            firework.style.fontSize = (Math.random() * 30 + 20) + "px";
+            firework.style.left = Math.random() * 100 + "%";
+            firework.style.top = "100%";
+            firework.style.opacity = "1";
+            firework.style.transition = "top 1s linear, opacity 1s linear";
+            fireworksContainer.appendChild(firework);
+            setTimeout(function() {
+                firework.style.top = Math.random() * 30 + "%";
+            }, 50);
+            setTimeout(function() {
+                const rect = firework.getBoundingClientRect();
+                const containerRect = fireworksContainer.getBoundingClientRect();
+                const explosionX = rect.left + rect.width/2 - containerRect.left;
+                const explosionY = rect.top + rect.height/2 - containerRect.top;
+                if(firework.parentElement) {
+                    fireworksContainer.removeChild(firework);
+                }
+                for(let i = 0; i < 10; i++){
+                    const particle = document.createElement("span");
+                    particle.textContent = "🥕";
+                    particle.style.position = "absolute";
+                    particle.style.fontSize = (Math.random() * 15 + 10) + "px";
+                    particle.style.left = explosionX + "px";
+                    particle.style.top = explosionY + "px";
+                    particle.style.opacity = "1";
+                    const angle = Math.random() * 2 * Math.PI;
+                    const distance = Math.random() * 100 + 50;
+                    const destX = explosionX + Math.cos(angle) * distance;
+                    const destY = explosionY + Math.sin(angle) * distance;
+                    particle.style.transition = "all 0.8s ease-out";
+                    fireworksContainer.appendChild(particle);
+                    setTimeout(function() {
+                        particle.style.left = destX + "px";
+                        particle.style.top = destY + "px";
+                        particle.style.opacity = "0";
+                    }, 50);
+                    setTimeout(function() {
+                        if(particle.parentElement){
+                            fireworksContainer.removeChild(particle);
+                        }
+                    }, 900);
+                }
+            }, 1000);
+        }
+        setInterval(createFirework, 400);
+    });
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
