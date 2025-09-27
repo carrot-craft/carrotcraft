@@ -269,7 +269,7 @@ header nav ul li a:hover {
     position: absolute; /* This is crucial for positioning faces within the .cube */
     width: var(--cube-size); /* キューブサイズに合わせる */
     height: var(--cube-size); /* キューブサイズに合わせる */
-    background-image: url('../assets/img/4d3a6bd98ac1833c664c4909ff8d2dc62ce887bdcf3cc5b3848651ae5af6b.png');
+    background-image: url('../assets/img/minecraft-skin-background.png');
     background-size: calc(var(--cube-size) * 8) calc(var(--cube-size) * 8); /* (面サイズ * 8) でスキン全体を表現 */
     image-rendering: pixelated; /* ピクセルアートの表示をシャープに */
     transform-style: preserve-3d; /* This is for the ::after pseudo-element's 3D transform */
@@ -283,7 +283,7 @@ header nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/img/4d3a6bd98ac1833c664c4909ff8d2dc62ce887bdcf3cc5b3848651ae5af6b.png'); /* 同じスキン画像を使用 */
+    background-image: url('../assets/img/minecraft-skin-background.png'); /* 同じスキン画像を使用 */
     background-size: calc(var(--cube-size) * 8) calc(var(--cube-size) * 8); /* ベースレイヤーと同じサイズ */
     image-rendering: pixelated;
     /* 帽子レイヤーはベースより少しだけ手前に表示 */
