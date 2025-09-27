@@ -1,7 +1,21 @@
 // This file provides interactive functionality for the website.
 // It includes DOM manipulation and event listener setup.
 
+// Prevent scroll restoration on page load
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Force scroll to top immediately
+    window.scrollTo(0, 0);
+
+    // Additional safety check for hash links
+    if (window.location.hash) {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 10);
+    }
     const button = document.getElementById('myButton');
     if (button) {
         button.addEventListener('click', function() {
@@ -206,6 +220,87 @@ document.addEventListener('DOMContentLoaded', function() {
     // Apply initial language
     applyLanguage(currentLang);
 
-    console.log("Modern Minecraft Site Script Loaded with Scroll Animations, Modals, Theme Toggle, and Language Toggle!");
-    // 今後、ここに追加のJavaScriptを記述していきます。
+    // Copy Server IP Functionality
+    const copyButton = document.getElementById('copy-server-ip');
+    const serverIp = document.getElementById('server-ip');
+
+    // Copy function
+    const copyServerAddress = async () => {
+        try {
+            const ipText = serverIp.textContent.trim();
+
+            // Modern browsers with Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(ipText);
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = ipText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand('copy');
+                textArea.remove();
+            }
+
+            // Visual feedback for copy button
+            if (copyButton) {
+                copyButton.classList.add('copied');
+                setTimeout(() => {
+                    copyButton.classList.remove('copied');
+                }, 1000);
+            }
+
+            // Visual feedback for IP address (subtle scale only)
+            serverIp.style.transform = 'scale(1.02)';
+
+            setTimeout(() => {
+                serverIp.style.transform = '';
+            }, 200);
+
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+
+            // Show error feedback
+            if (copyButton) {
+                const originalText = copyButton.querySelector('.copy-text').textContent;
+                const errorText = currentLang === 'ja' ? 'エラー' : 'Error';
+                copyButton.querySelector('.copy-text').textContent = errorText;
+
+                setTimeout(() => {
+                    copyButton.querySelector('.copy-text').textContent = originalText;
+                }, 1000);
+            }
+        }
+    };
+
+    // Add click event to both copy button and IP address
+    if (copyButton && serverIp) {
+        copyButton.addEventListener('click', copyServerAddress);
+        serverIp.addEventListener('click', copyServerAddress);
+
+        // Update aria-label on language change
+        const updateCopyButtonAria = () => {
+            if (copyButton.dataset.ariaLabelJa && copyButton.dataset.ariaLabelEn) {
+                const ariaLabel = currentLang === 'en' ? copyButton.dataset.ariaLabelEn : copyButton.dataset.ariaLabelJa;
+                copyButton.setAttribute('aria-label', ariaLabel);
+            }
+        };
+
+        // Call initially and on language change
+        updateCopyButtonAria();
+
+        // Override the language toggle to also update copy button
+        const originalLangToggle = langToggleButton?.onclick;
+        if (langToggleButton) {
+            langToggleButton.addEventListener('click', () => {
+                setTimeout(updateCopyButtonAria, 100); // Delay to ensure language is updated
+            });
+        }
+    }
+
+    console.log("Modern Minecraft Site Script Loaded with Scroll Animations, Modals, Theme Toggle, Language Toggle, and Copy Functionality!");
 });

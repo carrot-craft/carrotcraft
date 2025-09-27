@@ -60,14 +60,42 @@ body[data-theme='dark'] {
 
 /* Apple風デザイン CSS - 改良版 */
 
+/* パフォーマンス最適化 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* 基本的なリセットとフォント設定 */
-body, h1, h2, h3, p, ul, li, a, button {
+body, h1, h2, h3, h4, p, ul, li, a, button {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
 
 h1, h2, h3, .cta-button, header nav ul li a, .card h3 {
@@ -78,7 +106,30 @@ body {
     line-height: 1.6;
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+/* スクロールバーを非表示 */
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* WebKit */
+}
+
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* WebKit */
 }
 
 .container {
@@ -95,13 +146,16 @@ header {
     -webkit-backdrop-filter: blur(25px);
     padding: 15px 0;
     border-bottom: 1px solid var(--card-border-light);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    height: 60px; /* ヘッダーの高さを固定 */
+    height: 70px;
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* シャドウを少し追加 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header .container {
@@ -109,11 +163,13 @@ header .container {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 #logo {
@@ -132,18 +188,23 @@ header #site-title {
 }
 
 header nav {
-    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
 }
 
 header nav ul li {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0;
 }
 
 header nav ul li a {
@@ -151,34 +212,42 @@ header nav ul li a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 header nav ul li a:hover {
     color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    transform: translateY(-1px);
 }
 
-#theme-toggle, #lang-toggle, .status-button { /* Added .status-button */
+#theme-toggle, #lang-toggle, .status-button {
     background: transparent;
     border: 1px solid var(--text-color-light);
     color: var(--text-color-light);
     padding: 8px 10px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px; /* Adjusted for consistency */
-    margin-left: 10px; /* Adjusted margin for spacing */
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    min-width: 40px; /* Ensure minimum width for JA/EN text */
+    font-size: 16px;
+    margin-left: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 40px;
     text-align: center;
-    text-decoration: none; /* Remove underline for anchor tag */
-    display: inline-block; /* Ensure padding and margin work */
-    line-height: 1; /* Vertically align text */
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    will-change: transform;
 }
 
-#theme-toggle:hover, #lang-toggle:hover, .status-button:hover { /* Added .status-button */
+#theme-toggle:hover, #lang-toggle:hover, .status-button:hover {
     background-color: var(--primary-color);
     color: var(--button-text-light);
     border-color: var(--primary-color);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.3);
 }
 
 #theme-toggle .fa-moon {
@@ -189,24 +258,33 @@ header nav ul li a:hover {
 #hero {
     position: relative;
     text-align: center;
-    padding: 80px 20px 100px 20px; /* 上部パディングを調整 */
-    min-height: 70vh; /* 高さを確保 */
+    padding: 140px 20px 100px 20px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* コンテンツを縦に並べる */
-    justify-content: flex-end; /* テキストコンテンツを下揃えに */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: var(--secondary-bg-color-light);
+    background: linear-gradient(135deg, var(--secondary-bg-color-light) 0%, var(--bg-color-light) 100%);
+    margin-top: 0;
 }
 
-.hero-content-wrapper { 
+.hero-content-wrapper {
     position: relative;
-    z-index: 2;
-    padding: 35px 45px; /* パディング調整 */
+    z-index: 3;
+    padding: 40px 50px;
     background-color: var(--hero-content-bg-light);
-    border-radius: 15px;
+    border-radius: 20px;
     max-width: 700px;
-    width: 90%; /* 幅を確保 */
+    width: 90%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: heroFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    margin-top: 150px;
 }
 
 #hero h2 {
@@ -228,33 +306,82 @@ header nav ul li a:hover {
 }
 
 .cta-button {
-    background: var(--primary-color);
-    color: var(--cta-button-text-color-light) !important; /* !importantで確実に適用 */
-    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-darker) 100%);
+    color: var(--cta-button-text-color-light) !important;
+    padding: 16px 40px;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 500;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: none;
     text-shadow: 0 1px 2px var(--cta-button-text-shadow-light);
+    box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.2);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transform: translateZ(0);
 }
 
 .cta-button:hover {
-    background: var(--primary-color-darker);
-    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--primary-color-darker) 0%, var(--primary-color) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.35);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+}
+
+.cta-button:hover::before {
+    transform: translateX(100%);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-button:hover::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
 }
 
 /* 3D Cube */
 .cube-container {
-    position: absolute; /* 絶対配置でヒーローセクション内を自由に動かす */
-    top: calc(35% - 3px); /* テキストコンテンツの上に配置されるように調整 */
+    position: absolute;
+    top: 25%;
     left: 50%;
-    width: var(--cube-size); /* スキンヘッド用にサイズ調整 */
-    height: var(--cube-size); /* スキンヘッド用にサイズ調整 */
-    perspective: 800px; /* perspective値を調整 */
+    width: var(--cube-size);
+    height: var(--cube-size);
+    perspective: 800px;
     transform: translate(-50%, -50%);
-    z-index: 3; /* テキストラッパーより手前 */
+    z-index: 1;
 }
 
 .cube {
@@ -262,7 +389,8 @@ header nav ul li a:hover {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotate-cube 20s infinite linear; /* 回転速度調整 */
+    animation: rotate-cube 15s infinite linear;
+    will-change: transform;
 }
 
 .cube-face {
@@ -315,10 +443,17 @@ header nav ul li a:hover {
 /* 各セクションの基本スタイル */
 section {
     padding: 80px 0;
-    /* border-bottom: 1px solid var(--card-border-light); */ /* Remove border-bottom from all sections */
-    opacity: 0; /* アニメーション初期状態 */
-    transform: translateY(30px); /* アニメーション初期状態 */
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+    clear: both;
+}
+
+/* ヒーローセクション以外のセクションの調整 */
+section:not(#hero) {
+    position: relative;
+    z-index: 2;
 }
 
 /* Add border-bottom back to specific sections if needed, excluding the last one before footer */
@@ -331,6 +466,12 @@ section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* スタガードアニメーション */
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
 
 section:nth-child(even) { /* 偶数セクション (ヒーロー除く) */
     background-color: var(--secondary-bg-color-light);
@@ -363,11 +504,20 @@ section h2::after { /* タイトル下線 */
 #server-info .server-details {
     background: var(--card-bg-light);
     padding: 30px 40px;
-    border-radius: 18px; /* 角丸 */
+    border-radius: 24px;
     text-align: left;
     max-width: 750px;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.07); /* シャドウを少し強調 */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid var(--card-border-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#server-info .server-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 
 #server-info h3 {
@@ -381,6 +531,14 @@ section h2::after { /* タイトル下線 */
     margin-top: 0;
 }
 
+.server-address-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
 #server-info .ip-address {
     font-size: 22px;
     font-weight: 700;
@@ -388,10 +546,101 @@ section h2::after { /* タイトル下線 */
     background-color: var(--ip-address-bg-light);
     padding: 10px 18px;
     border-radius: 12px;
-    display: inline-block;
-    margin-bottom: 20px;
+    margin: 0;
     border: 1px solid var(--ip-address-border-light);
     user-select: all;
+    flex: 1;
+    min-width: 200px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#server-info .ip-address:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.3);
+}
+
+#server-info .ip-address:active {
+    transform: translateY(0) scale(1);
+    transition: all 0.15s ease;
+}
+
+/* ホバー時の光沢エフェクト */
+#server-info .ip-address::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+#server-info .ip-address:hover::before {
+    left: 100%;
+}
+
+.copy-button {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    min-width: 70px;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.copy-button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.copy-button:active {
+    transform: scale(0.98);
+}
+
+.copy-button .fas {
+    font-size: 11px;
+}
+
+.copy-button .copied-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.copy-button.copied .copy-text {
+    opacity: 0;
+}
+
+.copy-button.copied .copied-text {
+    opacity: 1;
+}
+
+.copy-button.copied {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
 }
 
 #server-info ol {
@@ -415,37 +664,42 @@ section h2::after { /* タイトル下線 */
 .card {
     background: var(--card-bg-light);
     border: 1px solid var(--card-border-light);
-    border-radius: 20px; /* Apple風の角丸 */
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    text-align: left; /* テキストを左揃えに */
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                opacity 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    opacity: 0; /* アニメーション初期状態 */
-    transform: translateY(20px); /* アニメーション初期状態 */
-    cursor: pointer; /* クリック可能であることを示すカーソル */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    will-change: transform;
 }
 
 .card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     border-color: var(--primary-color);
+}
+
+.card:hover img {
+    transform: scale(1.05);
 }
 
 .card img {
     width: 100%;
-    height: auto; /* 固定高さを解除 */
-    object-fit: contain; /* 画像全体が見えるよう調整 */
-    border-bottom: 1px solid #eee;
+    height: auto;
+    object-fit: contain;
+    border-bottom: 1px solid var(--card-border-light);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card h3 {
@@ -464,25 +718,29 @@ section h2::after { /* タイトル下線 */
     line-height: 1.5;
 }
 
-/* ゲームモードカードの個別アクセントカラー（例） */
-.card:nth-child(1) { transition-delay: 0.1s; } /* アニメーション遅延 */
-.card:nth-child(2) { transition-delay: 0.2s; }
+/* ゲームモードカードの個別アニメーション遅延 */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
 
 /* モーダルウィンドウ */
 .modal {
-    display: none; /* 初期状態では非表示 */
+    display: none;
     position: fixed;
-    z-index: 2000; /* ヘッダーより手前 */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* コンテンツが多い場合にスクロール可能に */
+    overflow: auto;
     background-color: var(--modal-overlay-bg-light);
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .modal.active {
@@ -494,18 +752,22 @@ section h2::after { /* タイトル下線 */
     background-color: var(--modal-bg-light);
     margin: auto;
     padding: 30px 40px;
-    border-radius: 12px;
+    border-radius: 20px;
     width: 90%;
     max-width: 650px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
     position: relative;
-    transform: scale(0.95);
-    transition: transform 0.3s ease-in-out;
-    animation: modal-open 0.4s ease-out;
+    transform: scale(0.9) translateY(50px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--card-border-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .modal.active .modal-content {
-    transform: scale(1);
+    transform: scale(1) translateY(0);
 }
 
 .close-button {
@@ -583,11 +845,49 @@ section h2::after { /* タイトル下線 */
     opacity: 1;
 }
 
-/* アニメーション追加: モーダルの開く動きを付与 */
-@keyframes modal-open {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* キーフレームアニメーション */
+@keyframes heroFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
+
+@keyframes modal-open {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
 
 /* Discordセクション */
 #discord {
@@ -610,24 +910,51 @@ section h2::after { /* タイトル下線 */
 }
 
 .discord-button {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-darker) 100%);
     color: var(--discord-button-text-light) !important;
-    padding: 12px 28px;
+    padding: 14px 32px;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 12px;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: none;
+    box-shadow: 0 4px 15px rgba(var(--primary-color-rgb), 0.2);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
 }
 
 .discord-button:hover {
-    background: var(--primary-color-darker);
+    background: linear-gradient(135deg, var(--primary-color-darker) 0%, var(--primary-color) 100%);
     color: var(--discord-button-text-light) !important;
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.35);
+}
+
+.discord-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.discord-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+}
+
+.discord-button:hover::before {
+    transform: translateX(100%);
 }
 
 .discord-button .fab.fa-discord {
@@ -646,22 +973,25 @@ footer {
 /* レスポンシブ対応 */
 @media(max-width: 768px) {
     :root {
-        --cube-size: 50px; /* キューブサイズをさらに小さく調整 */
+        --cube-size: 60px;
     }
 
     .cube-container {
-        top: 100px; /* ヒーローセクション上部からのオフセットを調整 */
+        top: 20%;
         left: 50%;
-        transform: translateX(-50%); /* 水平方向中央揃え */
-        width: var(--cube-size); 
+        transform: translate(-50%, -50%);
+        width: var(--cube-size);
         height: var(--cube-size);
-        z-index: 3; 
+        z-index: 1;
     }
 
     header {
-        height: auto; 
-        padding-top: 10px; /* ヘッダーの上下パディングを少し縮小 */
-        padding-bottom: 10px; 
+        height: auto;
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 
     header .container {
@@ -731,8 +1061,14 @@ footer {
         margin: 3px 0; /* 各リンク間の縦マージンを少し縮小 */
     }
 
-    .hero-content-wrapper { /* ヒーローコンテンツのパディングを縮小 */
+    .hero-content-wrapper {
         padding: 25px 30px;
+        margin-top: 100px;
+    }
+
+    #hero {
+        padding: 120px 20px 80px 20px;
+        min-height: 100vh;
     }
     
     #hero h2 {
@@ -749,8 +1085,13 @@ footer {
     }
 
     section {
-        padding: 60px 0; /* セクションの上下パディングを縮小 */
-        /* border-bottom: none; */ /* Remove border-bottom from all sections in mobile */
+        padding: 60px 0;
+    }
+
+    section:not(#hero) {
+        margin-top: 0;
+        position: relative;
+        z-index: 2;
     }
     /* Add border-bottom back to specific sections in mobile if needed, excluding the last one before footer */
     #hero, #server-info, #gamelist {
@@ -775,10 +1116,24 @@ footer {
         margin-top: 20px;
         margin-bottom: 10px;
     }
-    #server-info .ip-address { /* IPアドレス表示のフォントサイズとパディングを縮小 */
+    .server-address-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    #server-info .ip-address {
         font-size: 18px;
         padding: 8px 14px;
-        margin-bottom: 15px;
+        margin: 0;
+        min-width: auto;
+    }
+
+    .copy-button {
+        padding: 8px 12px;
+        font-size: 11px;
+        min-width: auto;
+        width: 100%;
     }
     #server-info ol li { /* サーバー情報リストアイテムのフォントサイズを縮小 */
         font-size: 14px;

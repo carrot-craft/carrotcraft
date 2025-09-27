@@ -64,7 +64,14 @@
                 <div class="server-details">
                     <h2 data-ja="サーバー情報" data-en="Server Info">サーバー情報</h2>
                     <h3 data-ja="サーバーアドレス:" data-en="Server Address:">サーバーアドレス:</h3>
-                    <p class="ip-address">play.carrotcraft.f5.si</p>
+                    <div class="server-address-container">
+                        <p class="ip-address" id="server-ip" title="クリックでコピー / Click to copy">play.carrotcraft.f5.si</p>
+                        <button class="copy-button" id="copy-server-ip" aria-label="サーバーアドレスをコピー" data-aria-label-ja="サーバーアドレスをコピー" data-aria-label-en="Copy server address">
+                            <i class="fas fa-copy"></i>
+                            <span class="copy-text" data-ja="コピー" data-en="Copy">コピー</span>
+                            <span class="copied-text" data-ja="完了" data-en="Done">完了</span>
+                        </button>
+                    </div>
                     <h3 data-ja="参加方法:" data-en="How to Join:">参加方法:</h3>
                     <ol>
                         <li data-ja="Minecraft Java Edition を起動します。" data-en="Launch Minecraft Java Edition.">Minecraft Java Edition を起動します。</li>
@@ -85,7 +92,7 @@
                 <div class="gamemode-cards">
                     <div class="card" data-modal-target="#modal-magical-sheep">
                         <img src="assets/img/magical-sheep-card.png" alt="Magical sheep">
-                        <h3>Magical sheep</h3>
+                        <h3 data-ja="Magical Sheep" data-en="Magical Sheep">Magical Sheep</h3>
                         <p data-ja="様々な種類の羊を使いこなし、相手を殲滅する。" data-en="Master various types of sheep to annihilate your opponents.">様々な種類の羊を使いこなし、相手を殲滅する。</p>
                     </div>
                     <div class="card" data-modal-target="#modal-survival-werewolf">
@@ -100,7 +107,7 @@
                     </div>
                     <div class="card" data-modal-target="#modal-bridge-rush">
                         <img src="assets/img/bridge-rush.png" alt="Bridge Rush">
-                        <h3>Bridge Rush</h3>
+                        <h3 data-ja="Bridge Rush" data-en="Bridge Rush">Bridge Rush</h3>
                         <p data-ja="チーム対チームで橋を架けて敵陣とつなげるPVP建築バトルゲームです。" data-en="A team vs team PVP building battle game where you build bridges to connect to enemy territory.">チーム対チームで橋を架けて敵陣とつなげるPVP建築バトルゲームです。</p>
                     </div>
                 </div>
@@ -274,30 +281,30 @@
     <div id="modal-three-little-pigs" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>🐷 The Three Little Pigs</h2>
+            <h2 data-ja="🐷 The Three Little Pigs" data-en="🐷 The Three Little Pigs">🐷 The Three Little Pigs</h2>
             <img src="assets/img/three-little-pigs.png" alt="The Three Little Pigs" class="modal-img">
 
-            <h3>ゲーム概要</h3>
-            <p>子豚として拠点を守るか、狼として襲撃するかに分かれて戦う6日間の攻防戦です。</p>
-            <p>「子豚チーム」は仲間と協力して拠点のコアを守り抜き、「狼チーム」はコアを破壊して子豚たちを全滅させることを目指します。戦略とチームワークが重要な非対称型PVPゲームです。</p>
+            <h3 data-ja="ゲーム概要" data-en="Game Overview">ゲーム概要</h3>
+            <p data-ja="子豚として拠点を守るか、狼として襲撃するかに分かれて戦う6日間の攻防戦です。" data-en="A 6-day battle where you fight as either little pigs defending your base or wolves attacking it.">子豚として拠点を守るか、狼として襲撃するかに分かれて戦う6日間の攻防戦です。</p>
+            <p data-ja="「子豚チーム」は仲間と協力して拠点のコアを守り抜き、「狼チーム」はコアを破壊して子豚たちを全滅させることを目指します。戦略とチームワークが重要な非対称型PVPゲームです。" data-en="The 'Pig Team' cooperates to defend their base's core, while the 'Wolf Team' aims to destroy the core and eliminate all pigs. This is an asymmetric PVP game where strategy and teamwork are crucial.">「子豚チーム」は仲間と協力して拠点のコアを守り抜き、「狼チーム」はコアを破壊して子豚たちを全滅させることを目指します。戦略とチームワークが重要な非対称型PVPゲームです。</p>
 
-            <h3>基本ルール</h3>
-            <p>最大6日間続く「子豚チーム」と「狼チーム」による非対称型PVPです。各チームは異なる能力と戦略で戦います。</p>
+            <h3 data-ja="基本ルール" data-en="Basic Rules">基本ルール</h3>
+            <p data-ja="最大6日間続く「子豚チーム」と「狼チーム」による非対称型PVPです。各チームは異なる能力と戦略で戦います。" data-en="An asymmetric PVP between 'Pig Team' and 'Wolf Team' lasting up to 6 days. Each team fights with different abilities and strategies.">最大6日間続く「子豚チーム」と「狼チーム」による非対称型PVPです。各チームは異なる能力と戦略で戦います。</p>
 
-            <h3>チームと勝利条件</h3>
+            <h3 data-ja="チームと勝利条件" data-en="Teams and Victory Conditions">チームと勝利条件</h3>
 
-            <p><strong>🐷 子豚チーム</strong></p>
+            <p data-ja="🐷 子豚チーム" data-en="🐷 Pig Team"><strong>🐷 子豚チーム</strong></p>
             <ul>
-                <li><strong>目的：</strong> 仲間と協力し、6日間拠点の「コア」を狼から守り抜く</li>
-                <li><strong>勝利条件1：</strong> 6日間、拠点のコアを守り抜く</li>
-                <li><strong>勝利条件2：</strong> コア破壊後でも最終日まで生き残り、狼チームを全滅させる</li>
-                <li><strong>✨ 完全勝利：</strong> 6日間コアが破壊されず、かつ狼チームを全滅させる</li>
+                <li data-ja="目的： 仲間と協力し、6日間拠点の「コア」を狼から守り抜く" data-en="Objective: Cooperate with allies to defend the base's 'Core' from wolves for 6 days"><strong>目的：</strong> 仲間と協力し、6日間拠点の「コア」を狼から守り抜く</li>
+                <li data-ja="勝利条件1： 6日間、拠点のコアを守り抜く" data-en="Victory Condition 1: Protect the base's core for 6 days"><strong>勝利条件1：</strong> 6日間、拠点のコアを守り抜く</li>
+                <li data-ja="勝利条件2： コア破壊後でも最終日まで生き残り、狼チームを全滅させる" data-en="Victory Condition 2: Survive until the final day even after core destruction and eliminate the wolf team"><strong>勝利条件2：</strong> コア破壊後でも最終日まで生き残り、狼チームを全滅させる</li>
+                <li data-ja="✨ 完全勝利： 6日間コアが破壊されず、かつ狼チームを全滅させる" data-en="✨ Perfect Victory: Core remains undestroyed for 6 days and wolf team is eliminated"><strong>✨ 完全勝利：</strong> 6日間コアが破壊されず、かつ狼チームを全滅させる</li>
             </ul>
 
-            <p><strong>🐺 狼チーム</strong></p>
+            <p data-ja="🐺 狼チーム" data-en="🐺 Wolf Team"><strong>🐺 狼チーム</strong></p>
             <ul>
-                <li><strong>目的：</strong> 子豚の拠点の「コア」を破壊し、その後すべての子豚を狩り尽くす</li>
-                <li><strong>勝利条件：</strong> 6日間以内に子豚のコアを破壊し、その後子豚チームを全滅させる</li>
+                <li data-ja="目的： 子豚の拠点の「コア」を破壊し、その後すべての子豚を狩り尽くす" data-en="Objective: Destroy the pigs' base 'Core' and then hunt down all the pigs"><strong>目的：</strong> 子豚の拠点の「コア」を破壊し、その後すべての子豚を狩り尽くす</li>
+                <li data-ja="勝利条件： 6日間以内に子豚のコアを破壊し、その後子豚チームを全滅させる" data-en="Victory Condition: Destroy the pigs' core within 6 days and then eliminate the pig team"><strong>勝利条件：</strong> 6日間以内に子豚のコアを破壊し、その後子豚チームを全滅させる</li>
             </ul>
 
             <h3>子豚チームの戦い方</h3>
@@ -391,7 +398,7 @@
             </ul>
 
             <hr>
-            <p class="text-center">子豚として仲間と協力するか、狼として単独で襲撃するか。あなたの戦略でチームを勝利に導きましょう！</p>
+            <p class="text-center" data-ja="子豚として仲間と協力するか、狼として単独で襲撃するか。あなたの戦略でチームを勝利に導きましょう！" data-en="Will you cooperate with allies as a pig, or attack alone as a wolf? Lead your team to victory with your strategy!">子豚として仲間と協力するか、狼として単独で襲撃するか。あなたの戦略でチームを勝利に導きましょう！</p>
         </div>
     </div>
 
@@ -399,12 +406,12 @@
     <div id="modal-bridge-rush" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>🌉 Bridge Rush</h2>
+            <h2 data-ja="🌉 Bridge Rush" data-en="🌉 Bridge Rush">🌉 Bridge Rush</h2>
             <img src="assets/img/bridge-rush.png" alt="Bridge Rush" class="modal-img">
 
-            <h3>ゲーム概要</h3>
-            <p>チーム対チームで橋を架けて敵陣とつなげるPVP建築バトルゲームです。</p>
-            <p>赤チームと青チームに分かれて、自陣から敵陣まで橋を完成させることが勝利の鍵となります。建築、戦闘、戦略のすべてが重要なチーム戦です。</p>
+            <h3 data-ja="ゲーム概要" data-en="Game Overview">ゲーム概要</h3>
+            <p data-ja="チーム対チームで橋を架けて敵陣とつなげるPVP建築バトルゲームです。" data-en="A team vs team PVP building battle game where you build bridges to connect to enemy territory.">チーム対チームで橋を架けて敵陣とつなげるPVP建築バトルゲームです。</p>
+            <p data-ja="赤チームと青チームに分かれて、自陣から敵陣まで橋を完成させることが勝利の鍵となります。建築、戦闘、戦略のすべてが重要なチーム戦です。" data-en="Divided into red and blue teams, completing a bridge from your base to the enemy base is the key to victory. Building, combat, and strategy are all important in this team battle.">赤チームと青チームに分かれて、自陣から敵陣まで橋を完成させることが勝利の鍵となります。建築、戦闘、戦略のすべてが重要なチーム戦です。</p>
 
             <h3>基本ルール</h3>
 
@@ -497,7 +504,7 @@
             </ul>
 
             <hr>
-            <p class="text-center">建築と戦闘が組み合わさったチーム戦で、戦略的な思考と素早い判断力を活かして勝利を掴みましょう！</p>
+            <p class="text-center" data-ja="建築と戦闘が組み合わさったチーム戦で、戦略的な思考と素早い判断力を活かして勝利を掴みましょう！" data-en="In this team battle combining building and combat, use strategic thinking and quick judgment to seize victory!">建築と戦闘が組み合わさったチーム戦で、戦略的な思考と素早い判断力を活かして勝利を掴みましょう！</p>
         </div>
     </div>
 
@@ -559,6 +566,10 @@
     });
     </script>
 
+    <script>
+        // Immediate scroll to top
+        window.scrollTo(0, 0);
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
